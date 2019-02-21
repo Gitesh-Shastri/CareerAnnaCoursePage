@@ -1,0 +1,62 @@
+.review_card{
+    text-align: left !important;
+    padding-top: 10px;
+    scale: (1);
+    display: inline-block;
+    margin-left: 1rem;
+    padding: 1rem;
+    width: 420px;
+    margin-right: 1rem;
+}
+.review_card.display_zero {
+  display: none;
+}
+.review_card .user_name{
+    min-height: 15px;
+    font-size: 14px;
+    text-transform: capitalize;
+    padding-left: 0px;
+    font-weight: 800;
+    letter-spacing: 0.07rem;
+}
+.review_card .rating_text{
+    padding-left: 0.4rem;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+.review_card .rating .rating_star {
+  padding-left: 0px !important;
+}
+.review_card .user_comment{
+  margin: 0px !important;
+  min-height: 120px !important;
+  max-height: 120px !important;
+  padding-right: 1.5rem !important;
+}
+#name_pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background: #293B44;
+  }
+  .review_card .publish_date{
+    font-size: 10px;
+    margin-top: 5px;
+  }
+  #name_initial {
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    color: white;
+    line-height: 42px;
+    font-size: 18px;
+  }
+  @media only screen and (max-width: 650px) {
+  .card{
+    height: 0px;
+    padding-top: 0px !important; 
+  }
+  .user_comment{
+    min-height: 200px;
+  }
+}

@@ -1,0 +1,171 @@
+.related_courses{    
+    width: 100% !important;
+    margin-left: 0px;
+    margin-top: 40px;
+    padding-left: 69px !important;
+    text-align: left !important;
+    margin-bottom: 100px;
+    padding-bottom: 60px !important;
+    padding-top: 50px !important;
+}
+.related_courses .trendingCard{
+    width: 255px !important;
+    height: 180px !important;;
+}
+.owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled{
+    display: block;
+}
+.inner_wrap{
+    width: 220px !important;
+}
+.owl_carousel_small{
+    display: none;
+}
+
+.related_courses .view_course_button:hover{
+    opacity: 0.9;
+}
+
+.related_courses .view_course_button{
+    font-size: 14px !important;font-size: 14px !important;
+    border: none;
+    outline: none !important;
+    background: #1989cd;
+    border-radius: 10px;
+    padding: 10px 9px 10px 9px !important;
+    color: white;
+    font-weight: 700;
+}
+.view_row{
+    padding:  0px !important;
+}
+.owl-nav :disabled{
+    margin-top: 30px !important;
+}
+button {
+    box-shadow: none !important;
+}
+.owl-carousel .owl-dots .owl-dot.active{ 
+    background: #e8e1e1a6 !important;
+}
+.owl-carousel .owl-dots{
+    margin-left: 40%;
+}
+.owl-carousel .owl-dots .owl-dot{
+    margin-right: 10px !important;
+    background: #cccccc08;
+    width: 10px !important;
+    height: 15px !important;
+    border-radius: 20px !important;
+}
+@media only screen and (max-width: 650px) {
+    .inner_wrap h3 {
+        font-size: 20px !important;
+        padding-bottom: 10px !important;
+        min-height: 55px !important;
+    }
+    .related_courses{
+        padding-left: 20px !important;
+        margin-bottom: 30px !important;
+        padding-top: 10px !important;
+    }
+    .left_wrapper_small{
+        height: 280px !important;
+    }
+    .owl_carousel {
+        display: none;
+    }
+
+    .owl_carousel_small{
+        display: block;
+    }
+    .related_course_arrow{
+        padding: 0px !important;
+    }
+    .arrow_nav_prev[disabled]{
+        cursor: not-allowed;
+        display: none;
+        border: none;
+        background: #80808066;
+    }
+    .arrow_nav_next[disabled]{
+        cursor: not-allowed;
+        display: none;
+        border: none;
+        background: #80808066;;
+    }
+    .arrow_nav_prev:hover{
+        background: #1d3139;
+        opacity: 0.8;
+    }
+    .arrow_nav_next:hover{
+        background: #1d3139 radial-gradient(circle, transparent 1%, #1d3139 1%) center/15000%;
+        opacity: 0.8;
+    }
+    .arrow_nav_prev{
+        border: 1px solid grey;
+        padding: 10px !important;
+        border-radius: 10px; 
+        float: left;
+        cursor: pointer;
+        background: #1d3139;
+        color: white;
+        font-size: 20px !important;
+        display: inline-block;
+    }
+    .arrow_nav_next{
+        cursor: pointer;
+        background: #1d3139;
+        color: white;
+        font-size: 20px !important;
+        border: 1px solid grey;
+        padding: 10px !important;
+        border-radius: 10px; 
+        float: right;
+        display: inline-block;
+    }
+    .left_wrapper_small p{
+        padding-top: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+.owl-carousel .owl-nav .owl-prev {
+    font-size: 24px !important;
+    color: white;
+    line-height: 36px !important;
+}
+.related_courses .owl-carousel .owl-nav .owl-prev {
+    font-size: 20px !important;
+    color: white;
+    top: 275px !important;
+    background: #1d3139 !important;
+    border-radius: 10px;
+}
+.related_courses .owl-carousel .owl-nav .owl-next {
+    left: 98% !important;
+    top: 275px !important;
+    font-size: 24px !important;
+    color: white;
+    line-height: 36px !important;
+    padding-top: 5px !important;
+    font-size: 20px !important;
+    background: #1d3139 !important;
+    border-radius: 10px;
+}
+.item{
+    width: 200px;
+    margin-right: 20px;
+}
+.item h3 {
+    font-size: 16px !important;
+    padding-bottom: 1px !important;
+    min-height: 51px !important;
+    font-weight: 600;
+    line-height: 21px !important;
+    padding-top: 5px !important;
+}
+.item img {
+    width: 220px !important;
+    border-radius: 10px; 
+    height: 180px !important
+}

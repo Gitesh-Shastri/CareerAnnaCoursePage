@@ -1,0 +1,119 @@
+.Intro .course_intro_heading {
+    font-weight: 900;
+    text-transform: uppercase !important;
+}
+.Intro .course_intro_heading{
+    font-size: 2.4rem;
+}
+.Intro .course_intro_heading span {
+    font-size: 2.1rem;
+    padding-left: 0.2rem;
+}
+.Intro .course_intro_subtitle {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.Intro .course_intro_list li:before {
+    content: '\2713';
+    position: absolute;
+    font-size: 13px;
+    color: white;
+    background: #1f313b;
+    margin-top: 7px;
+    left: 0;
+    border-radius: 50%;
+    font-weight: 700;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+}
+.Intro .course_intro_list li {     
+    padding-left: 25px !important;
+    max-width: 450px;
+    text-align: justify;
+    font-size: 1.25rem;
+    padding-bottom: 1rem !important;
+}
+.Intro .intro_max_price {
+    font-size: 18px;
+    text-decoration-line: line-through;
+    opacity: 0.8;
+}
+.Intro .intro_offer_price {
+    padding-left: 10px !important;
+    font-size: 24px !important;
+    font-style: bold; 
+}
+.Intro .intro_offer_expire {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}   
+.Intro .intro_button_area {
+    transition:0.3s ease;
+    color:#fff;
+    background:#1989CD;
+    font-weight:bold;
+    padding:10px 50px;
+    display:inline-block;
+    border-radius:5px;
+    font-size:1.2rem;
+}
+.Intro .demo_button {
+    margin-left: 20px;
+    color: white;
+    background: #1f313b;
+    font-weight:bold;
+    padding:10px 30px;
+    border-radius:5px;
+    font-size:1.2rem;
+}
+.Intro .demo_button::after {
+    padding-left: 10px;
+    content: '\f103';
+    font-family: "font Awesome 5 Free";
+}
+.Intro .video_wrapper{
+    position: relative;
+    padding: 36%;
+}
+.Intro .video_wrapper iframe{
+	box-sizing: border-box;
+    background: url('https://www.careeranna.com/assets/images/backgrounds/MacBook-Pro.png') center center no-repeat;
+    background-size: contain;
+    padding: 11.9% 14.5% 14.8%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+@media only screen and (max-width: 650px) {
+    .Intro .video_wrapper{
+        display: none;
+    }
+    .Intro {
+        padding: 3rem !important;
+    }
+    .Intro .demo_button {
+        margin-left: 10px !important;
+        padding: 10px 22.5px;
+        font-size: 20px;
+    }
+    .Intro .intro_max_price {
+        font-size: 18px;
+    }   
+    .Intro .intro_offer_price {
+        font-size: 14px !important;
+    }
+    .Intro .intro_button_area {
+        padding:10px 35px;
+        font-size:20px;
+    }
+    .Intro .course_intro_list {
+        padding-top: 25px !important;
+    }
+
+    .Intro .course_intro_price {
+        padding-top: 20px !important;
+    }
+}

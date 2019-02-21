@@ -1,0 +1,154 @@
+.footer{
+    background: #1d3139;
+    padding-top: 1.5rem;
+    padding-bottom: 5rem;
+    padding-left: 1.5rem;  
+    color: white;
+    text-align: left !important;
+  }
+  .footer_left_heading{
+    font-size: 48px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;    
+  }
+  .footer_left_text{
+    font-size: 14px;
+    text-align: justify;
+    padding-bottom: 4rem;
+    padding-top: 1rem;
+  }
+  .list-inline li {
+    display: inline;
+  }
+  .footer_left_links ul>li>a{
+    color: white;
+    font-weight: 200;
+    font-size: 12px;
+  }
+  .footer_left_links h6 {
+    font-weight: 700;
+  }
+  .social_icons{
+    padding-left: 1rem !important;
+    padding-right: 0px !important;
+  }
+  .social_icons ul>li>a{
+    padding-left: 0px !important; 
+    font-size: 15px;
+    margin-right: 1.4rem;
+  }
+  .coprwrite_link{
+    text-align: right;
+  }
+  .coprwrite_link ul>li>a{
+    font-size: 11px;
+    color: white !important;
+  }
+  .subs_form h4{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-size: 1.4rem;
+  padding-top: 2rem;
+  margin-bottom: 0px !important;
+  padding-bottom: 2rem !important;
+  }
+  .subs_form h5{
+    padding: 0px;
+    padding-bottom: 0.6rem;
+    margin: 0px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 18px;
+  }
+  .footer .form{
+    padding-top: 2rem;
+  }
+  .subs_form form input{
+    height: 2.7rem;
+  }
+  .footer .subs_form form button{
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+    margin-left: 1rem;
+  }
+  .footer_copyright{
+    text-align: left !important;    
+    margin-top: 0;
+    padding-left: 1rem;
+  }
+  .form-control{
+    text-align: left !important;
+  }
+  .social_icons .fab {
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+  }
+  @media only screen and (max-width: 650px) {
+    .footer{
+        margin-top: 40px !important;
+        padding-top: 20px !important;
+        padding-left: 0px !important;
+    }
+    .footer_left_heading{
+        font-size: 30px;
+    }
+    .footer .footer_left_links {
+      padding-left: 2.5rem;
+    }
+    .footer_left_text{
+        font-size: 14px;
+        line-height: 1.5rem;
+        padding-bottom: 40px !important;
+        padding-right: 40px !important;
+        padding-left: 40px !important;
+    }
+    .padding-left-none{
+        padding-left: 27px !important;
+        min-height: 215px !important;
+    }
+    .social_icons{
+        padding-top: 0px !important;
+        padding-left: 1rem !important;
+    }
+    .coprwrite_link{
+        padding-right: 5px;
+        display: none;
+    }
+    .subs_form{
+        padding-top: 1rem;
+        margin-left: 27px;
+        font-size: 15px !important;
+        margin-right: 27px !important;
+    }
+    .subs_form h4{
+        font-size: 21px !important; 
+    }
+    .subs_form h5{
+        font-size: 18px !important;
+    }
+    .subs_form form input{
+        height: 40px !important; 
+    }
+    .subs_form form button{
+        margin-left: 8% !important;
+        font-size: 17px !important;
+    }
+    .footer_left_links .padding-left-none {
+      padding-left: 0px !important;
+      padding-top: 1rem;
+    }
+  }
+  
