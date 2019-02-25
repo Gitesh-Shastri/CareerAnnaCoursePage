@@ -2,60 +2,22 @@ import React, { Component } from 'react';
 import './TrendingCourse.css';
 
 import Card from './Card/Card';
+import axios from 'axios';
 
 class TrendingCourse extends Component {
 
     state = {
-        courses: [
-            {
-                pic_url: "https://www.careeranna.com/uploads/product_images/Course_Images/2018/02/1519196316studying-ahead-1421056.jpg",
-                title: "Online CAT Quant Course",
-                publish: "24th Feb, 2016",
-                leaners: "7850+ Learners",
-                index: 0,
-                ratings: "4.7",
-                url: "https://www.careeranna.com/Online-CAT-Quant-Course"
-                },
-                {
-                    pic_url: "https://www.careeranna.com/uploads/product_images/Course_Images/2018/02/1519196290studying-ahead-1421056.jpg",
-                    title:"Online CAT Verbal Course",
-                    publish: "24th Feb, 2016",
-                    leaners: "6292+ Learners",
-                    ratings: "4.7",
-                    index: 1,
-                    url: "https://www.careeranna.com/Online-CAT-Verbal-Course"
-                    },
-                {
-                    pic_url: "https://www.careeranna.com/uploads/product_images/Course_Images/2018/02/1519196269studying-ahead-1421056.jpg",
-                    title:"Online CAT LR DI Course",
-                    publish: "24th Feb, 2016",
-                    index: 2,
-                    leaners: "4850+ Learners",
-                    ratings: "4.8",
-                    url: "https://www.careeranna.com/Online-CAT-LR-DI-Course"
-                },
-                {
-                    pic_url: "https://www.careeranna.com/uploads/product_images/Course_Images/2018/01/1517390939studying-3-1480680.jpg",
-                    title:"Complete MBA Prep with GDPI",
-                    publish: "14th Feb, 2019    ",
-                    index: 3,
-                    leaners: "8453+ Learners",
-                    ratings: "5",
-                    url: "https://www.careeranna.com/Complete-MBA-Prep-with-GDPI"
-                },
-        ],
-        course:  {
-            pic_url: "https://www.careeranna.com/uploads/product_images/Course_Images/2018/02/1519196316studying-ahead-1421056.jpg",
-            title: "Online CAT Quant Course",
-            publish: "24th Feb, 2016",
-            leaners: "7850+ Learners",
-            index: 0,
-            ratings: "4.7",
-            url: "https://www.careeranna.com/Online-CAT-Quant-Course"
-            },
+        courses: [ ],
+        course:  {}
     }
 
-
+    componentDidMount() {
+        axios.get('https://www.careeranna.com/websiteapi/getCatRelatedCourse')
+        .then(response => {
+            console.log(response);
+            this.setState({courses: response.data, course: response.data[0]});
+        })
+    }
 
     nextProperty = () => {
 		if(this.state.course.index !== this.state.courses.length-2){
@@ -115,7 +77,6 @@ class TrendingCourse extends Component {
                     disabled={course.index===courses.length-2}
                     hidden={course.index===courses.length-2}><i className='fa fa-angle-right'></i></button>
             </div>
-        </div>
         <div className="col-12 arrow_small">
             <button 
 				className="next_video_prev_small"
@@ -127,6 +88,7 @@ class TrendingCourse extends Component {
 				onClick={() => this.nextProperty()} 
 				disabled={course.index===courses.length-2}
 				hidden={course.index===courses.length-2}><i className='fa fa-caret-right'></i></button>     
+        </div>
         </div>
     </div>);
   }

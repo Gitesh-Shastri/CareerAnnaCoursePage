@@ -31,7 +31,6 @@
     font-weight: 700;
   }
   .social_icons{
-    padding-left: 1rem !important;
     padding-right: 0px !important;
   }
   .social_icons ul>li>a{
@@ -98,7 +97,7 @@
   }
   @media only screen and (max-width: 650px) {
     .footer{
-        margin-top: 40px !important;
+        margin-top: 0px !important;
         padding-top: 20px !important;
         padding-left: 0px !important;
     }
@@ -106,7 +105,7 @@
         font-size: 30px;
     }
     .footer .footer_left_links {
-      padding-left: 2.5rem;
+      padding-left: 1rem;
     }
     .footer_left_text{
         font-size: 14px;
@@ -121,7 +120,6 @@
     }
     .social_icons{
         padding-top: 0px !important;
-        padding-left: 1rem !important;
     }
     .coprwrite_link{
         padding-right: 5px;

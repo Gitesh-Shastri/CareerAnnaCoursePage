@@ -1,6 +1,6 @@
 .review_sec{
-    padding-top: 2rem !important;
-    padding-left: 4rem !important;
+    padding-top: 0rem;
+    padding-left: 4rem;
     padding-bottom: 2rem;
 }
 .review_sec .review_line{
@@ -50,4 +50,19 @@
 }
 .review_sec .review_big_card .review_small_card {
     display: flex;
+}
+@media only screen and (max-width: 650px) {
+    .review_sec {
+        padding-left: 0rem;
+    }
+    .review_sec .upperheading_review {
+        padding-top: 1rem;
+        padding-left: 2rem;
+    }
+    .review_sec .review_arrow {
+        padding-left: 1rem !important;
+    }
+    .review_sec .view_more_review {
+        margin-right: 1rem;
+    }    
 }

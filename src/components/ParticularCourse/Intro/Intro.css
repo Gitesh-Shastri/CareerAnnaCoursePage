@@ -1,34 +1,39 @@
+
+.Intro {
+    padding: 2rem 3rem 0rem 3rem;
+}
 .Intro .course_intro_heading {
     font-weight: 900;
-    text-transform: uppercase !important;
-}
-.Intro .course_intro_heading{
+    text-transform: uppercase;
     font-size: 2.4rem;
 }
 .Intro .course_intro_heading span {
-    font-size: 2.1rem;
-    padding-left: 0.2rem;
+    padding-left: 0.5rem;
 }
-.Intro .course_intro_subtitle {
-    font-size: 1.5rem;
+.Intro .course_intro_price {
+    padding-top: 5px;
+}
+.Intro .course_intro_heading span.course_intro_subtitle {
+    font-size: 1.8rem;
     text-transform: uppercase;
+    font-weight: 400;
+}
+.submit_request.disabled{
+    cursor: not-allowed !important;
 }
 .Intro .course_intro_list li:before {
-    content: '\2713';
+    content: '';
+    background: url('https://careeranna.com/home/static/media/tick.svg');
     position: absolute;
-    font-size: 13px;
     color: white;
-    background: #1f313b;
-    margin-top: 7px;
-    left: 0;
-    border-radius: 50%;
+    left: 1rem;
     font-weight: 700;
     text-align: center;
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
 }
 .Intro .course_intro_list li {     
-    padding-left: 25px !important;
+    padding-left: 40px !important;
     max-width: 450px;
     text-align: justify;
     font-size: 1.25rem;
@@ -45,27 +50,39 @@
     font-style: bold; 
 }
 .Intro .intro_offer_expire {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
+    padding-left: 0px;
+    font-weight: bolder;
+    padding-top: 0px !important;
+    padding-bottom: 2rem;
+    color: #1989CD;
 }   
 .Intro .intro_button_area {
     transition:0.3s ease;
-    color:#fff;
-    background:#1989CD;
+    color: white !important;
+    background: #1989CD;
     font-weight:bold;
     padding:10px 50px;
     display:inline-block;
+    margin-right: 1rem;
     border-radius:5px;
-    font-size:1.2rem;
+    font-size:1rem;
 }
 .Intro .demo_button {
-    margin-left: 20px;
-    color: white;
-    background: #1f313b;
+    color: #1f313b;
+    border:1px solid #1f313b;
     font-weight:bold;
     padding:10px 30px;
     border-radius:5px;
-    font-size:1.2rem;
+    font-size:1rem;
+}
+.Intro .pastScore {
+    margin-left: 20px;
+    color: #1f313b;
+    border:1px solid #1f313b;
+    font-weight:bold;
+    padding:10px 30px;
+    border-radius:5px;
+    font-size:1rem;
 }
 .Intro .demo_button::after {
     padding-left: 10px;
@@ -87,33 +104,132 @@
     width: 100%;
     height: 100%;
 }
+.Intro .course_intro_list li {
+    font-size: 17px;
+}
+.Intro .course_intro_list {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    width: 120%;
+    background: #FFFFFF;
+    -webkit-box-shadow: -3px 3px 3px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: -3px 3px 3px 0px rgba(0,0,0,0.25);
+    box-shadow: -3px 5px 3px 0px rgba(0,0,0,0.25);
+    border-radius: 10px 15px 10px 10px;
+}
+.requestForm input {
+    border: none;
+    font-size: 14px;
+    outline: none;
+    border-bottom: 1px solid #1f313b;
+}
+.requestForm input::placeholder {
+    color: #1B3648;
+    opacity: 0.4;
+    font-style: italic;
+}
+.requestForm .request {
+    font-size: 18px;
+    padding-top: 0.7rem;
+    font-weight: 600;
+    margin:0 auto;
+}
+.Intro .requestForm .request_form {
+    margin-right:0%;
+    padding-top: 0.8rem;
+}
+.Intro #name {
+    margin-left: 0.9rem;
+    text-transform: capitalize;
+}
+.Intro input.error{
+    opacity: 0.6;
+    border: 1px solid red;
+}
+.Intro small {
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    color: red;
+    opacity: 0.8;
+}
+.Intro input {
+    margin-bottom: 0.5rem;
+    max-width: 220px;
+    min-width: 220px;
+}
+.Intro #mobile {
+    margin-left: 0.2rem;
+}
+.Intro #email{
+    margin-left: 0.9rem;
+}
+.submit_request {
+    margin-top: 3.6rem;
+    font-size: 18px;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    background: transparent;
+    color: white !important;
+    background: #1989CD;
+    font-weight: 500;
+    border-radius: 4px;
+}
 @media only screen and (max-width: 650px) {
+    .Intro {
+        padding: 2rem 1.5rem !important;
+    }
     .Intro .video_wrapper{
         display: none;
     }
-    .Intro {
-        padding: 3rem !important;
+    .Intro .intro_button_area {
+        padding:5px 20px;
+        margin-top:0.4rem;
+        font-size:20px;
     }
     .Intro .demo_button {
-        margin-left: 10px !important;
-        padding: 10px 22.5px;
-        font-size: 20px;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+    .Intro .pastScore {
+        margin-left: 5px;
+        padding:5px 10px;
+        font-size:16px;
     }
     .Intro .intro_max_price {
         font-size: 18px;
     }   
-    .Intro .intro_offer_price {
-        font-size: 14px !important;
+    .Intro .intro_offer_expire {
+        font-size: 14px;
+        margin-top: 1rem;
+        padding-bottom: 1rem;
     }
-    .Intro .intro_button_area {
-        padding:10px 35px;
-        font-size:20px;
+    .Intro .intro_offer_price {
+        font-size: 16px !important;
     }
     .Intro .course_intro_list {
         padding-top: 25px !important;
+        padding-right: 0px !important;
     }
-
     .Intro .course_intro_price {
         padding-top: 20px !important;
+    }
+    .Intro .course_intro_heading {
+        font-size: 1.5rem;
+    }
+    .Intro .course_intro_heading span.course_intro_subtitle {
+        font-size: 1.5rem;
+    }
+    .Intro .course_intro_list {
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+    .Intro .submit_request {
+        margin-top: 0.5rem;
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+    .Intro small {
+        width: 90%;
     }
 }

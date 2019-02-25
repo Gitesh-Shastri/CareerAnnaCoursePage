@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import './Navigation.css';
+import './Navigation.scss';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 

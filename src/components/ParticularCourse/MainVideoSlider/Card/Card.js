@@ -4,8 +4,7 @@ import './Card.css';
 const Card = ({Video}) => {  
     const {video_url,
         index,
-        title,
-        url_link
+        title
     } = Video;
 
     let css_class = "video_player_demo_card";

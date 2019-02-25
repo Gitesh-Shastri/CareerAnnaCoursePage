@@ -48,23 +48,25 @@ class MainVideoSlider extends Component {
   showModal(i) {
     this.setState({showModal: true,
       video_item: this.state.videos_playlist[i]
-    })
+    });
   }
 
   hideModal() {
-    this.setState({showModal: false})
+    this.setState({showModal: false});
   }
 
    timer() {
-//     if(this.state.video_item.index === this.state.videos_playlist.length-1) { 
-//         this.setState({
-//           video_item: this.state.videos_playlist[0]
-//         })
-//     } else {
-//     this.setState({
-//       video_item: this.state.videos_playlist[this.state.video_item.index+1]
-//     })
-// }
+     if(!this.state.showModal) { 
+    if(this.state.video_item.index === this.state.videos_playlist.length-1) { 
+        this.setState({
+          video_item: this.state.videos_playlist[0]
+        })
+    } else {
+    this.setState({
+      video_item: this.state.videos_playlist[this.state.video_item.index+1]
+    })
+}
+     }
   }
 
 
@@ -112,7 +114,7 @@ class MainVideoSlider extends Component {
     return (
       <div className="MainVideoSlider" id="video">
       <Modal show={this.state.showModal} modalClosed={() => this.hideModal()}>
-        <iframe title={video_item.title} width="650" height="366" src={showModal?video_item.url_link:''} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <iframe className="videoFrame" title={showModal?video_item.title:null} width="650" height="366" src={showModal?video_item.url_link:''} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </Modal>
       <div className="row large_slider">
       <div className="col-12 d-lg-none heading_small">

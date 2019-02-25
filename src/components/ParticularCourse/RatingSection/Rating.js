@@ -32,7 +32,7 @@ class Rating extends Component {
         style: {width: '93%'}
       },
       {
-        title: "Quality of Conten",
+        title: "Quality of Content",
         percent: "97",
         style: {width: '97%'}
       }, 
@@ -71,7 +71,7 @@ class Rating extends Component {
           { render ? 
           <div className="col-md-9 col-12 row px-0course_rating_right_wrapper">
           {ratings.map((particular_rating, i) => 
-             <div className="col-md-6 col-12 px-0 row">
+             <div className="col-md-6 col-12 px-0 row" key={i}>
                 <div className="col-md-6 col-xs-12  rating_name">
                  {particular_rating.title}
                 </div>

@@ -9,18 +9,20 @@ import CourseContent from './Course_content/Course_content';
 import FAQ from './FAQ/FAQ';
 import MainVideoSlider from './MainVideoSlider/MainVideoSlider';
 import TrendingCourse from './TrendingCourse/TrendingCourse';
+import PastScore from './PastScore/PastScore';
 
 class ParticularCourse extends Component {
     
     render() {
         return(<div name="ParticularCourse">
-            <Intro />
+            <Intro /> 
             <Rating />
-            <ReviewSection />
-            <CourseContent /> 
+            <ReviewSection /> 
+            <CourseContent />
             <MainVideoSlider title="Demo"/>
-            <TrendingCourse />
-            <FAQ />
+            <TrendingCourse />  
+            <FAQ /> 
+            <PastScore />        
             </div>
         );
     }

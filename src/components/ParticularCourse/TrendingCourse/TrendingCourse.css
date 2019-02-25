@@ -97,12 +97,12 @@
     color: white;   
     top: 40%;
     width: 3.5rem;
-    padding-top: 5px;
+    padding-top: 2px;
     height: 3.5rem;
     background: #2e4655;
     border: 2px solid white;
 }
-.next_video_prev .fa.fa-angle-left {
+.next_video_prev .fa.fa-angle-left, .fa-angle-right {
     font-size: 1.5rem;
     font-weight: 900;
 }
@@ -115,6 +115,9 @@ button[disabled]{
 @media only screen and (max-width: 650px) {
 .TrendingCourse .arrow_small {
     display: block;
+}
+.TrendingCourse .arrow_right {
+    display: none;
 }
     .TrendingCourse .trendingCourseCard {
         width: 100%;
@@ -165,7 +168,6 @@ button[disabled]{
     .TrendingCourse .off_column {
         display: inline-block;
         text-align: right;
-        float: right;
     }
     .TrendingCourse .trendingCourseCardInside {
         display: block;
@@ -175,5 +177,8 @@ button[disabled]{
     }
     .TrendingCourse .trending_expire {
         display: none;
+    }
+    .arrow_small .fa {
+        font-size: 2rem;
     }
 }

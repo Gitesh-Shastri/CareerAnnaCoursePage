@@ -11,7 +11,8 @@ class Review_Section extends Component {
 			reviews: [],
 			review: { "reviewID": "1236", "productID": "216", "rating": "5", "fullname": "Vindhya", "emailaddress": "vindhyakaushal@gmail.com", "comments": "Will surely recommend to friends. High quality material and mocks were strictly in line with the exam.", "date": "2018-02-02", "publish": "1", "user_id": "393704", "index": 0 },
 			disabled: true,
-			pageno: 0
+			pageno: 0,
+			showVideo:  true
 		}
 	}
 
@@ -50,9 +51,26 @@ class Review_Section extends Component {
 						reviews_temp.push(review_array_temp);
 						i+=4;
 				 }
-				 console.log(reviews_temp);
 				 this.setState({reviews: reviews_temp});
-			}); 
+				 this.intervalId = setInterval(this.timer.bind(this), 3000);
+				}); 
+			
+	}
+	timer() {
+		const newpageno = this.state.pageno+1;
+		if(newpageno === this.state.reviews.length) { 
+				this.setState({
+					pageno: 0
+				})
+		} else {
+		this.setState({
+			pageno: newpageno
+		})
+}
+	}
+
+  componentWillUnmount(){
+    clearInterval(this.intervalId);
 	}
 
 	nextReview = () => {
@@ -79,20 +97,20 @@ class Review_Section extends Component {
 		}
 	}
 
+
   render() {
-		const {reviews, review} = this.state;
-		const single_review = this.state.review;
+		const {reviews} = this.state;
 		const pageno = this.state.pageno;
 		
 		return (
 		<section className="review_sec">
 			<div className="row">
 				<div className="col-md-3 col-12 px-0">
-					<div className="review_line" />
+					<div className="review_line" /> 
 						<div className="upperheading_review">
-							<div className="student">What Student Say</div>
+							<div className="student">What Students Say</div>
 							<div className="about">About Us.</div>
-						</div>
+						</div> 
 					</div>
 					<div className="col-md-9 col-12 px-0">
 						<div className="user_review_wrapper">
@@ -100,24 +118,25 @@ class Review_Section extends Component {
 				'transform': `translateX(-${900*pageno}px)`
 			}}>
 									{reviews.map((particular_review, i) => 
-										<div className="review_big_card">
-										<div className="review_small_card">
-										<Card key={i} review={particular_review[0]} current_page={pageno*4}/>
-										<Card key={i} review={particular_review[1]} current_page={pageno*4}/>
+										<div className="review_big_card" key={i}>
+										<div className="review_small_card" key={i}>
+										<Card key={i*4} review={particular_review[0]} current_page={pageno*4}/>
+										<Card key={(i+1)*4} review={particular_review[1]} current_page={pageno*4}/>
 										</div>
 										<div className="review_small_card">
-										<Card key={i} review={particular_review[2]} current_page={pageno*4}/>
-										<Card key={i} review={particular_review[3]} current_page={pageno*4}/>
+										<Card key={(i+2)*4} review={particular_review[2]} current_page={pageno*4}/>
+										<Card key={(i+3)*4} review={particular_review[3]} current_page={pageno*4}/>
 										</div>
 										</div>)}
 								</div>
 							</div>
 						</div>
-					<div className="col-md-3 px-0"></div>
-					<div className="col-md-9 col-12 px-0 review_arrow">
+					<div className="col-md-12 col-12 px-0 review_arrow">
 					<button className="view_more_review float-left" hidden={pageno===0} onClick={() => this.prevReview()}><i className="fas fa-caret-left"></i></button>
-						<button className="view_more_review float-right" hidden={pageno===reviews.length-1}onClick={() => this.nextReview()}><i className="fas fa-caret-right"></i></button>
+					<button className="view_more_review float-right" hidden={pageno===reviews.length-1}onClick={() => this.nextReview()}><i className="fas fa-caret-right"></i></button>
 					</div>
+					{/* <div className="col-md-9 col-12 px-0 ">
+					</div> */}
 					</div>
 </section>
     );

@@ -4,15 +4,15 @@
     width: 100% !important;
     padding-right: 3rem !important;
 }
-.course_content .row{color: #fff;padding: 60px;}
-.course_content .fst_wrapper{background:#3E657A;border-radius: 5px 5px 0px 0px;}
-.course_content h2{width:100%;margin: 0px;margin-bottom: 30px;font-size: 36px;font-weight: 600;padding-bottom: 40px !important;}
+.course_content .row{color: #fff;}
+.course_content .fst_wrapper{background:#3E657A;border-radius: 5px ;padding: 3rem;}
+.course_content h2{width:100%;margin: 0px;margin-bottom: 30px;font-size: 36px;font-weight: 600;padding-bottom: 0px !important;}
 .course_content .content_part{padding: 0px !important;}
 .course_content .content_part ul li{min-width:250px;padding-left: 20px;margin-bottom: 20px;font-size: 20px;color: white !important;text-transform: none !important;}
 .course_content .content_part ul li {
     font-size: 1.1rem !important;
     text-align: left !important;
-    padding-left: 1.6rem;
+    padding-left: 2rem;
     padding-right: 1rem;
 }
 .course_content .content_part ul li:before{
@@ -22,13 +22,19 @@
     left: 0;
     width: 30px;
     height: 60px;
-    padding-right: 1rem;
     background-repeat: no-repeat;}
-.course_content .sec_wrapper{background:#293B44;border-radius:0px 0px 5px 5px ;}
+.course_content .sec_wrapper{background:#293B44;border-radius:0px 0px 5px 5px ;padding-top: 2rem;padding-bottom: 1rem;}
 .course_content .sec_wrapper p{text-align: right;padding-right: 50px;font-size: 24px;font-weight: 600;color: #fff;}
 
 .course_content .sec_wrapper .content_part ul li{font-size: 18px;}
-
+.course_content .content-tab h2 {
+    font-size: 1.5rem;
+    padding-bottom: 0px !important;
+}
+.course_content .content-tab {
+    padding-top: 1rem;
+    min-height: 200px;
+}
 .course_grey{
     color: #7893A2 !important;
     padding-right: 5px;
@@ -41,11 +47,16 @@
     text-align: left !important;
 }
 @media only screen and (max-width: 650px) {
+    .container_main {    
+        padding-left: 1rem !important;
+        width: 100% !important;
+        padding-right: 1rem !important;
+    }
     .course_content{
-        margin-top: 50px !important;
+        margin-top: 0px !important;
     }
     .right_content {
-        margin-top: 50px !important;
+        margin-top: 10px !important;
     }
     .sec_wrapper p{
         font-size: 22px !important;
@@ -59,21 +70,9 @@
     }
     .course_content .content_part ul li {
         font-size: 12px !important;
-        max-width: 60px !important;
+
     }
     .course_content .content_part ul li {
-        min-width: 320px;
-        padding-left: 20px;
-        font-size: 16px;
-        color: white !important;
-    }
-}
-
-@media only screen and (max-width: 650px) {
-
-    .course_content .content_part ul li {
-        min-width: 250px;
-        padding-left: 20px;
         font-size: 16px;
         color: white !important;
     }

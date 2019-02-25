@@ -11,7 +11,7 @@
     font-weight: 900;
 }
 .faq .question_tab {
-    padding-right: 2rem;
+    padding-right: 4rem;
 }
 .faq .answer:before {
     content: 'A.';
@@ -39,6 +39,7 @@
     height: 1px;
     background: #ccc;
     margin-left: 1rem;
+    width: 95%;
 }
 .faq .question {
     cursor: pointer;

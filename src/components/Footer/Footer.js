@@ -8,14 +8,14 @@ class Footer extends Component {
 			<div className="row">
 				<div className="col col-md-6">
 					<div className="row">
-						<div className="col-md-12 footer_left_heading">
+						<div className="col-md-12 px-0 footer_left_heading">
 							careeranna
 						</div>
 
 						<div className="footer_copyright col-12 col-md-12 padding-none">
 									<p>© CAREERANNA Pvt. Ltd. 2019</p>
 								</div>
-								<div className="col-md-12 social_icons">
+								<div className="col-md-12 padding-none social_icons">
 														<ul className="list-inline">
 															<li><a href="https://m.facebook.com/careerannacorp/"><i className="fab fa-facebook-f"></i></a></li>
 															<li><a href="https://www.linkedin.com/company/careeranna"><i className="fab fa-linkedin"></i></a></li>

@@ -1,3 +1,4 @@
+@import '../../index.scss';
 /* Navbar Css */
 .navbar{min-height: 64px;}
 .navbar{
@@ -21,7 +22,7 @@
 }
 .navbar .nav-item .primary_btn {
   letter-spacing: 0.10rem;
-  font-weight: 800; 
+  font-weight: 600; 
   font-size: 0.9rem;
   background: #1989CD;
   line-height: 0.5rem;
@@ -40,7 +41,7 @@
   .navbar .nav-item{
     margin: 0px;
     padding: 0px;
-    background: #1E313A;
+    background: $primary-background;
     color: white;
     font-size: 1.5rem;
     line-height: 4rem;

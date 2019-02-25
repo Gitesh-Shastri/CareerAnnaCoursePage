@@ -24,7 +24,9 @@
     background: transparent;
 }
 @media (max-width: 600px) {
-    .Modal {
-        width: 500px;
+    .MyModal {
+        width: 100% !important;
+        height: 240px;
+        left: 0;
     }
 }

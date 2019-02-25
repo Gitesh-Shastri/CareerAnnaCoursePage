@@ -71,6 +71,13 @@
     .MainVideoSlider {
         padding-top: 2rem;
     }
+    .MainVideoSlider .arrow_left_cat {
+        display: none;
+    }
+    .MainVideoSlider .videoFrame {
+        width: 92%;
+        height: 200px;
+    }
     .MainVideoSlider .heading_small {
         color: white;
         padding-right: 0px;
@@ -92,6 +99,7 @@
     }
     .MainVideoSlider .video_player_list {
         height: 210px;
+        max-width: 100%;
         padding-left: 0px;
         padding-right: 0px; 
     }

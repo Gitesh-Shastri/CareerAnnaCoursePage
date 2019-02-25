@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 
 import {BrowserRouter} from 'react-router-dom';
 
 import Navigation from './Navigation/Navigation';
-import {Route} from 'react-router-dom';
 import ReactGA from 'react-ga';
 
 import ParticularCourse from './ParticularCourse/ParticularCourse';

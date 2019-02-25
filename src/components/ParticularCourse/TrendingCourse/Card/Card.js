@@ -7,13 +7,13 @@ const Card = ({course, current_index}) => {
         <div className="Coursecard" id={`card-${course.index}`} >
             <div className="row">
             <div className="items trending_course">
-        <a href={course.url}>
-        <img src={course.pic_url} className="pic" alt={course.title} />
+        <a href={'https://careeranna.com/'+course.course.slug}>
+        <img src={'https://careeranna.com/'+course.course.product_image} className="pic" alt={course.course.course_name} />
         <div className="course_heading">
-            {course.title}
+            {course.course.course_name}
         </div>
         <div className="rating">
-            <div className="rating_star colorBlue">{course.ratings} &nbsp;
+            <div className="rating_star colorBlue">{course.course.average_rating} &nbsp;
                 <span className="fa fa-star colorBlue"></span>
                 <span className="fa fa-star colorBlue"></span>
                 <span className="fa fa-star colorBlue"></span>
@@ -23,7 +23,7 @@ const Card = ({course, current_index}) => {
             </div>
         </div>
         <div className="course_views">
-        <i className="fa fa-users" aria-hidden="true"></i>  {course.leaners}
+        <i className="fa fa-users" aria-hidden="true"></i>  {course.course.learners_count}+
         </div>
         </a>
     </div>
