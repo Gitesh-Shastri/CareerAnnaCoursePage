@@ -1,0 +1,132 @@
+.LoginModel {
+	position: fixed;
+	z-index: 500;
+	height: 450px;
+	background-color: white;
+	width: 600px !important;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 1px black;
+	padding: 16px;
+	left: 25%;
+	border-radius: 10px;
+	top: 20%;
+	box-sizing: border-box;
+	transition: all 0.3s ease-out;
+	@media (max-width: 600px) {
+		width: 100% !important;
+		height: 240px;
+		left: 0;
+	}
+	.login_from {
+		.heading {
+			text-align: center;
+			font-size: 1.3rem;
+		}
+		.create_account_heading {
+			text-align: center;
+			letter-spacing: 0.1rem;
+		}
+	}
+	.signup_input-container {
+		width: 48%;
+		height: 4.5rem;
+		input {
+			margin-top: 0;
+			margin-bottom: 0.75rem;
+			width: 100%;
+			outline: none;
+			color: #7d97ad;
+			vertical-align: top;
+			height: 3rem;
+			border: 1px solid #dbe2e8;
+			padding: 0 1.25rem;
+			background: rgb(232, 240, 254) !important;
+			box-sizing: border-box;
+			font-size: 0.875rem;
+			box-shadow: 5px 5px 10px 0 rgba(46, 61, 73, 0.05);
+			border-radius: 0.25rem;
+			transition: box-shadow 0.3s ease, border 0.3s ease;
+		}
+		select {
+			height: 50px;
+			font-size: 14px;
+		}
+	}
+	.input-container {
+		height: 4rem;
+		.button-social {
+			-webkit-font-smoothing: antialiased;
+			box-sizing: border-box;
+			font-family: Open Sans, sans-serif;
+			display: inline-block;
+			font-size: 12px;
+			letter-spacing: 1px;
+			font-weight: 600;
+			text-transform: uppercase;
+			border-radius: 4px;
+			cursor: pointer;
+			text-align: center;
+			height: 44px;
+			padding: 0 25px;
+			border: 1px solid #dbe2e8 !important;
+			color: #757c81;
+			margin-bottom: 1.375rem;
+			width: 48%;
+			.button-label {
+				img {
+					margin-right: 1rem;
+				}
+			}
+		}
+		input {
+			margin-top: 0;
+			margin-bottom: 0.75rem;
+			width: 100%;
+			outline: none;
+			color: #7d97ad;
+			vertical-align: top;
+			height: 3rem;
+			border: 1px solid #dbe2e8;
+			padding: 0 1.25rem;
+			background: rgb(232, 240, 254) !important;
+			box-sizing: border-box;
+			font-size: 0.875rem;
+			box-shadow: 5px 5px 10px 0 rgba(46, 61, 73, 0.05);
+			border-radius: 0.25rem;
+			transition: box-shadow 0.3s ease, border 0.3s ease;
+		}
+	}
+	#agree {
+		text-align: center;
+		margin: 0 auto;
+	}
+	.close_button {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		display: inline-block;
+		margin-left: 8px;
+		button {
+			outline: none;
+			border: none;
+			background: transparent;
+		}
+	}
+	.disclaimer {
+		margin: 0 auto;
+		font-size: 1.1rem;
+		font-weight: 600;
+	}
+	.opensignupmodalPopup {
+		text-decoration: underline !important;
+		color: #1989cd !important;
+		cursor: pointer;
+	}
+	.blue {
+		color: #1989cd;
+	}
+	.terms-wrap {
+		margin-top: 0rem;
+		margin-bottom: 1rem;
+	}
+}

@@ -1,115 +1,119 @@
 .past_score {
-    padding: 3rem;
+	padding: 3rem;
 }
 .past_score_heading {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 500;
-    padding-bottom: 2rem;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 500;
+	padding-bottom: 2rem;
 }
 table {
-    margin: 0 auto;
+	margin: 0 auto;
 }
-table thead{
-    background: #2f4756;     
+table thead {
+	background: #2f4756;
 }
 table thead th {
-    font-weight: 400;
-    color: white;
-    padding: 1rem;
-    text-align: left;
+	font-weight: 400;
+	color: white;
+	padding: 1rem;
+	text-align: left;
 }
 table tbody {
-    background: #f2f2f2;
+	background: #f2f2f2;
 }
 table tbody tr td {
-    color: #2f4756;
-    font-weight: 100;
-    text-align: center;
-    padding: 1rem;
+	color: #2f4756;
+	font-weight: 100;
+	text-align: center;
+	padding: 1rem;
 }
-.past_score .requestForm{
-    padding: 1rem;
-    padding-left: 11rem;
-    width: 700px;
+.past_score .requestForm {
+	padding: 1rem;
+	padding-left: 11rem;
+	width: 700px;
 }
 
 .requestForm input {
-    border: none;
-    font-size: 14px;
-    outline: none;
-    border-bottom: 1px solid #1f313b;
+	border: none;
+	font-size: 14px;
+	outline: none;
+	border-bottom: 1px solid #1f313b;
 }
 .requestForm input::placeholder {
-    color: #1B3648;
-    opacity: 0.4;
-    font-style: italic;
+	color: #1b3648;
+	opacity: 0.4;
+	font-style: italic;
 }
 .requestForm .request {
-    font-size: 18px;
-    padding-top: 0.7rem;
-    font-weight: 600;
-    margin:0 auto;
+	font-size: 18px;
+	padding-top: 0.7rem;
+	font-weight: 600;
+	margin: 0 auto;
 }
 .past_score .requestForm .request_form {
-    margin-right:0%;
-    padding-top: 0.8rem;
+	margin-right: 0%;
+	padding-top: 0.8rem;
 }
 .past_score #name {
-    margin-left: 0.9rem;
-    text-transform: capitalize;
+	margin-left: 0.9rem;
+	text-transform: capitalize;
 }
-.past_score input.error{
-    opacity: 0.6;
-    border: 1px solid red;
+.past_score input.error {
+	opacity: 0.6;
+	border: 1px solid red;
 }
 .past_score small {
-    width: 100%;
-    text-align: center;
-    font-size: 11px;
-    color: red;
-    opacity: 0.8;
+	width: 100%;
+	text-align: center;
+	font-size: 11px;
+	color: red;
+	opacity: 0.8;
 }
 .past_score input {
-    margin-bottom: 0.5rem;
-    max-width: 220px;
-    min-width: 220px;
+	margin-bottom: 0.5rem;
+	max-width: 220px;
+	min-width: 220px;
 }
 .past_score #mobile {
-    margin-left: 0.2rem;
+	margin-left: 0.2rem;
 }
-.past_score #email{
-    margin-left: 0.9rem;
+.past_score #email {
+	margin-left: 0.9rem;
 }
 .submit_request {
-    margin-top: 3.6rem;
-    font-size: 18px;
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-    background: transparent;
-    color: white !important;
-    background: #1989CD;
-    font-weight: 500;
-    border-radius: 4px;
+	margin-top: 3.6rem;
+	font-size: 18px;
+	padding-left: 1.2rem;
+	padding-right: 1.2rem;
+	background: transparent;
+	color: white !important;
+	background: #1989cd;
+	font-weight: 500;
+	border-radius: 4px;
 }
 @media only screen and (max-width: 650px) {
-    .past_score table{
-        display: block;
-        overflow-x: auto;
-        width: 100%;
-        margin: 0px;
-        white-space: nowrap;
-    }
-    .past_score {
-        padding: 1rem;
-    }
-    .requestForm {
-        padding-left: 0rem !important;
-        width: 300px !important;
-    }
-    .past_score input {
-        margin-bottom: 0.5rem;
-        max-width: 190px;
-        min-width: 190px;
-    }
-}   
+	.past_score table {
+		display: block;
+		overflow-x: auto;
+		width: 100%;
+		margin: 0px;
+		white-space: nowrap;
+	}
+	.past_score {
+		padding: 1rem;
+	}
+	.requestForm {
+		padding-left: 0rem !important;
+		width: 300px !important;
+	}
+	.past_score input {
+		margin-bottom: 0.5rem;
+		max-width: 190px;
+		min-width: 190px;
+	}
+	table tbody tr td {
+		color: #2f4756;
+		font-weight: 500;
+	}
+}

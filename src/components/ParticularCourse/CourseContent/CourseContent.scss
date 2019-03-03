@@ -1,0 +1,167 @@
+.CourseContent {
+	margin-top: 75px;
+	background: url('https://www.careeranna.com/home/static/media/cat/cat_header_image.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	.container {
+		padding-top: 55px;
+		margin-left: 70px;
+		height: 535px;
+		@media screen and (max-width: '650px') {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+			padding-left: 1rem !important;
+			margin-left: 0rem;
+			width: 100%;
+			height: auto;
+			margin-right: 0rem;
+		}
+		.row {
+			.content {
+				width: 550px;
+				color: white;
+				@media screen and (max-width: '650px') {
+					width: 350px;
+				}
+				.course_name {
+					padding-left: 1px;
+					font-weight: 900;
+					font-size: 27px;
+					span {
+						font-weight: 50;
+					}
+				}
+				.course_intro_list {
+					padding-top: 21px;
+					li {
+						width: 430px;
+						font-size: 18px;
+						text-align: left;
+						padding-left: 45px;
+						font-weight: 50;
+						padding-bottom: 15px;
+						@media screen and (max-width: '650px') {
+							width: 300px;
+						}
+						&:before {
+							content: '';
+							background: url('https://careeranna.com/home/static/media/cat/cat_course_content_tick.png');
+							position: absolute;
+							left: 67px;
+							margin-top: 4px;
+							background-repeat: no-repeat;
+							width: 30px;
+							height: 31px;
+							@media screen and (max-width: '650px') {
+								left: 1rem;
+							}
+						}
+						b {
+							font-weight: 600;
+						}
+					}
+					li.end {
+						padding-bottom: 10px;
+					}
+				}
+				.course_price_and_offer {
+					.intro_max_price {
+						opacity: 0.8;
+					}
+					.intro_offer_price {
+						font-size: 1.25rem;
+					}
+					.intro_offer_expire {
+						font-size: 14px;
+					}
+				}
+				.enroll_and_other_buttons {
+					margin-top: 2rem;
+					.enroll_now {
+						background: #1989cc;
+						border-radius: 3px;
+						font-size: 18px;
+						font-weight: 600;
+						padding: 14px 30px;
+						margin-right: 15px;
+					}
+					.demo_button {
+						background: transparent;
+						border: 1.25px solid #fff;
+						border-radius: 3px;
+						font-size: 17px;
+						font-weight: 600;
+						padding: 10.5px 21px;
+					}
+				}
+				.course_price_and_offer {
+					.intro_max_price {
+						padding-right: 10px;
+					}
+				}
+			}
+			.request_call {
+				margin-left: 17%;
+				max-height: 350px;
+				margin-top: 10px;
+				width: 285px;
+				background: #fff;
+				color: #000;
+				border-radius: 3px;
+				padding: 25px;
+				padding-top: 25px;
+				font-size: 17px;
+				font-weight: 400;
+				@media screen and (max-width: '650px') {
+					margin-left: 2rem;
+					margin-top: 2rem;
+					margin-bottom: 4rem;
+				}
+				.heading {
+					padding-bottom: 30px;
+					span {
+						font-size: 19px;
+						font-weight: 100;
+					}
+					img {
+						margin-right: 5px;
+						width: 26px;
+						margin-top: -3.6px;
+					}
+				}
+				.input-group {
+					min-height: 60px;
+					input {
+						font-size: 13px;
+						border: none;
+						border-bottom: 1px solid #ccc;
+					}
+				}
+				.submit_request {
+					border-radius: 25px;
+					outline: none;
+					font-size: 14px;
+					padding-top: 8px;
+					padding-left: 25px;
+					padding-right: 25px;
+					margin-top: 10px;
+					margin-left: 27%;
+					padding-bottom: 8px;
+					color: #000 !important;
+					border: 0.8px solid #000;
+					background: transparent;
+				}
+			}
+		}
+	}
+}
+.past_score_link {
+	margin-left: 15px;
+	color: white;
+	border-radius: 3px;
+	font-size: 17px;
+	font-weight: 600;
+	padding: 10.5px 21px;
+	border: 1.25px solid #fff;
+	display: inline-block;
+}

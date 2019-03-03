@@ -22,9 +22,8 @@ componentDidUpdate = () => ReactGA.pageview(window.location.pathname + window.lo
       <BrowserRouter>
       <div className="App">
       <Navigation /> 
-
       <ParticularCourse />
-      <Footer />
+       <Footer />
       </div>
       </BrowserRouter>
     );

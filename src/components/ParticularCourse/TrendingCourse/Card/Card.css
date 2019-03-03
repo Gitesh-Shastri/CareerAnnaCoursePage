@@ -1,33 +1,43 @@
 .Coursecard {
-    width: 190px;
-    margin-left: 1rem;
-    margin-right: 1rem;
+	width: 190px;
+	margin-right: 1.5rem;
+	margin-left: 0.5rem;
 }
 .Coursecard .trending_course .pic {
-    width: 100%;
-    height: 150px;
-    border-radius: 4px;
- }
- .Coursecard:hover{
-     transform: scale(1.1);
-     transition: transform 400ms cubic-bezier(0.455, 0.03, 0.515, 0.955);  
-     -webkit-box-shadow: 0px 0px 2px 2px#ccc;
-        box-shadow: 0px 0px 2px 2px#ccc;
-     border-radius: 10px 10px;
+	width: 190px;
+	height: 150px;
+	border-radius: 3px;
+}
+.Coursecard:hover {
+	transform: scale(1.1);
+	transition: transform 400ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	border-radius: 10px 10px;
+}
+.Coursecard:hover .course_heading {
+	color: #1989cd;
 }
 .colorBlue {
-    color: #1989CD;
+	color: #1989cd;
 }
 .Coursecard .course_heading {
-    font-size: 1rem;
-    padding-left: 0.4rem;
-    min-height: 2.7rem;
+	margin-top: 15px;
+	font-size: 1rem;
+	font-weight: 600;
+	backface-visibility: hidden;
+	padding-left: 0.4rem;
+	min-height: 2.7rem;
 }
-.Coursecard .course_views, .rating_star {
-    font-size: 0.85rem;
-    padding-left: 0.4rem;
-    padding-top: 0.3rem;
+.Coursecard .course_views,
+.rating_star {
+	font-size: 0.85rem;
+	padding-left: 0.4rem;
+	padding-top: 0.3rem;
 }
 .Coursecard .rating_star {
-    font-weight: 700;
+	font-weight: 500;
+	color: #000;
+	font-size: 1.1rem;
+}
+.Coursecard .rating_star img {
+	width: 16px;
 }

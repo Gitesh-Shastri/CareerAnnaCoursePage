@@ -1,0 +1,68 @@
+$break-small: 650px;
+.CourseRating {
+	margin-top: 1rem;
+	text-align: left;
+	padding: 2rem 70px 2rem 70px;
+	margin-bottom: 1rem;
+	@media screen and (max-width: $break-small) {
+		padding: 2rem;
+		padding-top: 70px;
+		text-align: center;
+	}
+	.course_rating_left_wrapper {
+		max-width: 290px !important;
+		@media screen and (max-width: $break-small) {
+			margin-left: 25%;
+			margin-bottom: 1rem;
+		}
+		h3 {
+			font-size: 3.6rem;
+			font-weight: 800;
+			line-height: 2.1rem;
+			margin-bottom: 0px;
+			letter-spacing: 0.08px;
+			.slash {
+				font-weight: 600;
+			}
+		}
+		.rating_off_5 {
+			font-size: 2rem;
+		}
+		h4 {
+			font-size: 2.5rem;
+			font-weight: 750;
+			line-height: 48px;
+			margin-bottom: 4px;
+		}
+		h5 {
+			font-size: 16px;
+		}
+	}
+	.course_rating_right_wrapper {
+		.rating_name {
+			font-size: 13px;
+			text-align: right;
+			line-height: 35px;
+			@media screen and (max-width: $break-small) {
+				text-align: center;
+				font-size: 16px;
+			}
+		}
+		.progress {
+			margin-top: 11px;
+			border-radius: 8px;
+			height: 11px;
+		}
+		.progress-bar {
+			background-color: #2487d3;
+			height: 11px;
+		}
+		.percent {
+			line-height: 34px;
+			font-size: 13px;
+			@media screen and (max-width: $break-small) {
+				font-size: 16px;
+			}
+		}
+	}
+}

@@ -1,0 +1,225 @@
+$break-small: 650px;
+.CourseIntro {
+	padding: 2rem 2rem 0rem 3rem;
+	@media screen and (max-width: $break-small) {
+		padding-left: 2rem;
+		padding-bottom: 2rem;
+	}
+	.intro_left_wrapper {
+		// .bg {
+		//     -webkit-clip-path: polygon(0 0, 96% 0, 19% 51%, 0 36%);
+		//     clip-path: polygon(0 0, 96% 0, 19% 51%, 0 36%);
+		//     position: absolute;
+		//     width: 100%;
+		//     height: 100%;
+		//     z-index: -1;
+		//     background: #1989CD;
+		// }
+		.course_intro_heading {
+			font-weight: 900;
+			color: black;
+			text-transform: uppercase;
+			font-size: 2.4rem;
+			@media screen and (max-width: $break-small) {
+				font-size: 1.8rem;
+			}
+			span {
+				padding-left: 0.5rem;
+			}
+			.course_intro_subtitle {
+				font-size: 1.8rem;
+				text-transform: uppercase;
+				font-weight: 400;
+				@media screen and (max-width: $break-small) {
+					font-size: 1.8rem;
+				}
+			}
+		}
+		.course_intro_list {
+			margin-top: 2.5rem;
+			padding: 2.5rem;
+			position: relative;
+			z-index: 3;
+			background: #ececec8c;
+			width: 75%;
+			box-shadow: 0px 0px 3px 3px #ccc;
+			border-radius: 10px;
+			@media screen and (max-width: $break-small) {
+				width: 100%;
+				margin-top: 1.5rem;
+				padding: 1.5rem;
+			}
+			li {
+				padding-left: 20px;
+				max-width: 450px;
+				text-align: justify;
+				font-weight: 400;
+				font-size: 17px;
+				padding-bottom: 1rem;
+				@media screen and (max-width: $break-small) {
+					padding-left: 25px;
+					font-size: 15px;
+				}
+				&:before {
+					content: '';
+					background: url('https://careeranna.com/home/static/media/cat/cat_course_content_tick.svg');
+					position: absolute;
+					left: 15px;
+					width: 26px;
+					height: 26px;
+				}
+			}
+		}
+		.course_price_and_offer {
+			.intro_max_price {
+				font-size: 18px;
+				-webkit-text-decoration-line: line-through;
+				text-decoration-line: line-through;
+				opacity: 0.8;
+				@media screen and (max-width: $break-small) {
+					font-size: 18px;
+				}
+			}
+			.intro_offer_price {
+				padding-left: 10px;
+				font-size: 24px;
+				@media screen and (max-width: $break-small) {
+					font-size: 21px;
+				}
+			}
+			.intro_offer_expire {
+				font-weight: bolder;
+				color: #1989cd;
+			}
+		}
+		.enroll_and_other_buttons {
+			padding-top: 2rem;
+			.enroll_now {
+				transition: 0.3s ease;
+				color: white !important;
+				background: #1989cd;
+				font-weight: bold;
+				padding: 8.5px 37px;
+				display: inline-block;
+				margin-right: 0.5rem;
+				border-radius: 5px;
+				font-size: 1.4rem;
+			}
+			.demo_button,
+			.pastScore {
+				background: #1f313b;
+				margin-right: 0.5rem;
+				color: white;
+				border: 1px solid #1f313b;
+				font-weight: bold;
+				padding: 7.5px 17px;
+				border-radius: 5px;
+				font-size: 1.4rem;
+				@media screen and (max-width: $break-small) {
+					font-size: 1rem;
+					margin: 0.2rem 0rem;
+					margin-right: 5px;
+					padding: 7.5px 22px;
+				}
+				&:after {
+					padding-left: 10px;
+					content: '\f103';
+					font-family: "font Awesome 5 Free";
+				}
+			}
+			.pastScore {
+				padding: 7.5px 15px;
+				@media screen and (max-width: $break-small) {
+					font-size: 1rem;
+					padding: 7.5px 16px;
+				}
+			}
+		}
+	}
+	.intro_right_wrapper {
+		.requestForm {
+			border-radius: 5px;
+			height: 64%;
+			margin-left: 5rem;
+			margin-right: 4rem;
+			margin-top: 5rem;
+			box-shadow: 0px 0px 2px 2px #ccc;
+			@media screen and (max-width: $break-small) {
+				margin-left: 0rem;
+				margin-top: 1rem;
+				height: auto;
+			}
+			.heading {
+				text-align: center;
+				font-size: 18px;
+				padding: 0.5rem;
+				border: none;
+				border-radius: 4px;
+				box-shadow: 0px 0px 3px 3px #ccc;
+				background: #2487d3;
+				color: white;
+				font-weight: 600;
+			}
+			.subheading {
+				text-align: center;
+				font-size: 0.8rem;
+				font-weight: 600;
+			}
+			.image_and_form {
+				padding-top: 2rem;
+				.image {
+					@media screen and (max-width: $break-small) {
+						padding-left: 20% !important;
+					}
+					img {
+						width: 90%;
+						@media screen and (max-width: $break-small) {
+							width: 150px;
+						}
+					}
+				}
+				.request_form {
+					padding: 1.5rem 2rem 1rem 0rem;
+					@media screen and (max-width: $break-small) {
+						padding: 1rem 0.5rem;
+					}
+					.input-group {
+						padding-bottom: 0.5rem;
+						height: 60px;
+						.input-group-addon {
+							background: #ebebeb;
+							width: 40px;
+							height: 35px;
+							border-radius: 4px;
+							font-size: 1rem;
+							text-align: center;
+							padding-top: 0.2rem;
+						}
+						input {
+							width: 75%;
+							margin-left: 1rem;
+						}
+						#name {
+							text-transform: capitalize;
+						}
+						small {
+							color: red;
+						}
+					}
+					.submit_request {
+						margin-top: 0rem;
+						outline: none;
+						font-weight: 700;
+						border: none;
+						padding: 0.3rem 1rem;
+						&:after {
+							padding-left: 10px;
+							content: '\f1d8';
+							font-family: "font Awesome 5 Free";
+						}
+					}
+				}
+			}
+		}
+	}
+}

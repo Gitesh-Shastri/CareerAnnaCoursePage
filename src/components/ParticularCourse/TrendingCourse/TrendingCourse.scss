@@ -1,0 +1,222 @@
+/* Trending Course */
+/* Upcoming Language geading */
+.TrendingCourse .upcoming_languages {
+	margin-top: 2rem;
+	padding: 2rem 0rem 2rem 0rem;
+	color: #1e313a !important;
+	box-shadow: 0px 0px 2px 2px #ccc;
+}
+.TrendingCourse .upcoming_heading h4 {
+	line-height: 2rem;
+	padding-left: 2rem;
+	font-weight: 800;
+	font-size: 1.3rem;
+}
+.TrendingCourse .upcoming_languages .others h4 {
+	line-height: 2rem;
+	text-align: center;
+	font-weight: 700;
+	font-size: 1.1rem;
+}
+
+/*  Trending Course Playlist */
+.TrendingCourse .trendingCourseCard {
+	width: 300px;
+	padding: 1.5rem 0rem 1.5rem 3rem;
+}
+.TrendingCourse .trendingCourseCardInside {
+	width: 269px;
+	height: 300px;
+	border-radius: 10px;
+	color: #000;
+	font-size: 1.6rem;
+	padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.TrendingCourse .trendingheading {
+	font-size: 2.2rem;
+	line-height: 30px;
+	font-weight: 800;
+}
+.TrendingCourse .trendingsubheading {
+	font-size: 1.8rem;
+	font-weight: 200;
+}
+.TrendingCourse .trending_line {
+	width: 20%;
+	position: relative;
+	left: 0%;
+	height: 0.1rem;
+	display: inline-block;
+	margin-top: 0rem;
+	background: #000;
+}
+.TrendingCourse .trending_off {
+	font-size: 1.2rem;
+	padding-top: 2.5rem;
+}
+.TrendingCourse .trending_off span {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+.TrendingCourse .trending_special {
+	font-size: 0.9rem;
+	padding-top: 0.2rem;
+}
+.TrendingCourse .trending_expire {
+	font-size: 0.9rem;
+	text-align: right;
+}
+.course_course_list {
+	position: relative;
+	padding-top: 2rem;
+	overflow-y: hidden;
+	overflow-x: auto;
+	width: 64.3%;
+	margin-right: 15px;
+}
+.TrendingCourse .trending_playlist {
+	position: absolute;
+	display: flex;
+}
+::-webkit-scrollbar {
+	display: none;
+}
+.next_video_prev {
+	position: relative;
+	top: 140px;
+	left: -10px;
+	border-radius: 50%;
+	padding-top: 5px;
+	color: white;
+	width: 3.5rem;
+	height: 3.5rem;
+	background: #2e4655;
+	border: 2px solid white;
+}
+.next_video_right {
+	position: relative;
+	border-radius: 50%;
+	color: white;
+	top: 40%;
+	width: 3.5rem;
+	padding-top: 2px;
+	height: 3.5rem;
+	background: #2e4655;
+	border: 2px solid white;
+}
+.next_video_prev .fa.fa-angle-left,
+.fa-angle-right {
+	font-size: 1.5rem;
+	font-weight: 900;
+}
+button[disabled] {
+	visibility: hidden;
+}
+.TrendingCourse .arrow_small {
+	display: none;
+}
+.TrendingCourse {
+	margin-top: 1.5rem;
+	.next_video_prev_video {
+		position: relative;
+		top: 145px;
+		left: -10px;
+		background: transparent;
+		margin-right: 6px;
+		outline: none;
+		border: 1px solid #333f4f;
+		border-radius: 50%;
+		width: 50px;
+		height: 50px;
+		.fa {
+			font-size: 25px;
+			line-height: 45px;
+		}
+	}
+	.next_video_right_video {
+		position: relative;
+		top: 41%;
+		background: transparent;
+		outline: none;
+		border: 1px solid #333f4f;
+		border-radius: 50%;
+		width: 50px;
+		height: 50px;
+	}
+	.fa {
+		font-size: 25px;
+		line-height: 45px;
+	}
+}
+@media only screen and (max-width: 650px) {
+	.TrendingCourse .arrow_small {
+		display: block;
+	}
+	.TrendingCourse .arrow_right {
+		display: none;
+	}
+	.TrendingCourse .trendingCourseCard {
+		width: 100%;
+		padding: 0px 0rem 0rem 0.5rem;
+	}
+	.TrendingCourse .upcoming_heading h4 {
+		text-align: center;
+	}
+	.TrendingCourse .next_video_right_video {
+		display: none;
+	}
+	.TrendingCourse .arrow_small {
+		display: block;
+	}
+	.TrendingCourse .heading_small {
+		display: block;
+		font-size: 1.3rem;
+		padding-top: 0.5rem;
+		letter-spacing: 0.03rem;
+		text-align: center;
+		font-weight: 600;
+	}
+	.course_course_list {
+		padding-top: 0px;
+		padding-left: 10px;
+		height: 320px;
+		width: 100%;
+	}
+	.next_video_prev_small,
+	.next_video_right_small {
+		background: transparent !important;
+		outline: none !important;
+		border: none !important;
+	}
+
+	.TrendingCourse .trendingCourseCardInside {
+		width: 100%;
+		border-radius: 0px;
+		padding-left: 1rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		height: 140px;
+	}
+	.TrendingCourse .next_video_prev_video {
+		display: none;
+	}
+	.TrendingCourse .upperheading {
+		display: inline-block;
+	}
+	.TrendingCourse .off_column {
+		display: inline-block;
+		text-align: right;
+	}
+	.TrendingCourse .trendingCourseCardInside {
+		display: block;
+	}
+	.TrendingCourse .off_column .trending_special {
+		text-align: right;
+	}
+	.TrendingCourse .trending_expire {
+		display: none;
+	}
+	.arrow_small .fa {
+		font-size: 2rem;
+	}
+}

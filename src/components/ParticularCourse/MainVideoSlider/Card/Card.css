@@ -1,31 +1,65 @@
 .video_player_demo_card .video_frame {
-    padding-left: 0px;
-    padding-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
-.video_player_demo_card .video_frame img{
-    width: 100%;
-    border-radius: 4px; 
+.video_player_demo_card .video_frame img {
+	width: 100%;
+	height: 130px;
+	border-radius: 3px;
 }
-.video_player_demo_card{
-    width: 196px;
-    height: 185px;
-    margin-right: 1rem;
-    margin-left: 1rem;
+.video_player_demo_card .video_frame img::before {
+	content: '';
+	font-size: 3rem;
+	padding-top: 15%;
+	color: white;
+	height: 100%;
+	background: #ccc;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 25%;
+	z-index: 111;
+	padding-left: 40%;
+	left: 40%;
+	width: 100%;
+}
+.video_player_demo_card {
+	width: 210px;
+	height: 210px;
+	margin-left: 0.5rem;
+	margin-right: 1.5rem;
 }
 .video_title {
-    padding-left: 0.4rem;
-    font-size: 0.9rem;
-    font-weight: 700;
+	margin-top: 15px;
+	padding-left: 0.4rem;
+	font-size: 1rem;
+	font-weight: 600;
+	backface-visibility: hidden;
 }
-.video_player_demo_card:hover{
-    transform: scale(1.1);
-    border-radius: 2px;
-    font-size: 1rem;
-    height: 170px;
-    transition: transform 350ms cubic-bezier(0.455, 0.03, 0.515, 0.955); 
+.video_player_demo_card:hover {
+	transform: scale(1.1);
+	border-radius: 2px;
+	font-size: 1rem;
+	color: #1989cd;
+	height: 170px;
+	transition: transform 350ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.video_player_demo_card .video_frame::before {
+	content: '';
+	font-size: 3rem;
+	padding-top: 15%;
+	color: white;
+	height: 100%;
+	background: url('https://careeranna.com/home/static/media/cat/play2.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 0%;
+	padding-left: 40%;
+	left: 0%;
+	width: 100%;
 }
 @media only screen and (max-width: 650px) {
-    .video_player_demo_card {
-        height: 200px;
-    }
+	.video_player_demo_card {
+		height: 200px;
+	}
 }

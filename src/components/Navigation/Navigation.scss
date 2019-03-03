@@ -1,63 +1,73 @@
-@import '../../index.scss';
-/* Navbar Css */
-.navbar{min-height: 64px;}
-.navbar{
-	background: #fff;    
-	z-index: 8000;
-  box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
-  margin-bottom: 0px;  
-  width: 100%;
-  height: 70px;
-}
-.logo_image{ 
-  margin-left: 12%;
-  width: 180px;
-  height: 60px;
-}
-.nav-item {
-  margin-right: 2rem; 
-}
-.nav_link {
-  line-height: 6rem;
-}
-.navbar .nav-item .primary_btn {
-  letter-spacing: 0.10rem;
-  font-weight: 600; 
-  font-size: 0.9rem;
-  background: #1989CD;
-  line-height: 0.5rem;
-  height: auto;
-  padding: 20px 35px 20px 25px;
-  text-transform: capitalize;
-  color: #fff ;
-  border: 0.125rem solid transparent;
-  padding: 15px 16px ;
-  margin-top: 1.6rem;
-}
-.navbar .nav-item .primary_btn.login{
-  background:  #2d4755 !important;
-}
-@media only screen and (max-width: 650px) {
-  .navbar .nav-item{
-    margin: 0px;
-    padding: 0px;
-    background: $primary-background;
-    color: white;
-    font-size: 1.5rem;
-    line-height: 4rem;
-    border-bottom: 1px solid#ccc;
-    text-align: center;
-  }  
-  .navbar {
-    padding: 0px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .navbar .nav-item .primary_btn {
-    margin: 0px;
-    font-size: 1.5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    line-height: 0rem;
-  }
+$break-large: 650px;
+.Navigation {
+	.navbar.navbar-light {
+		background: #fff !important;
+		-webkit-box-shadow: -1px 2px 2px 0px rgba(0, 0, 0, 0.06);
+		-moz-box-shadow: -1px 2px 2px 0px rgba(0, 0, 0, 0.06);
+		box-shadow: -1px 2px 2px 0px rgba(0, 0, 0, 0.06);
+		.navbar-brand {
+			padding: 0px;
+			.logo_image {
+				width: 172px;
+				height: 57px;
+			}
+		}
+		.navbar-collapse {
+			.nav_link {
+				color: #323f4e;
+				padding-top: 10px;
+				font-family: 'Roboto';
+				text-transform: uppercase;
+				font-size: 14px;
+				a {
+					color: #000000;
+					padding-right: 45px;
+				}
+				@media screen and (max-width: $break-large) {
+					background: #bb3335;
+					padding: 0.5rem;
+					margin: 0;
+					border-bottom: 1px solid #ccc;
+					a {
+						text-align: center;
+						color: White;
+						padding: 0px;
+					}
+				}
+			}
+			.btn {
+				font-weight: 500;
+				background: #1989cd;
+				border-radius: 4px;
+				color: white;
+				border: none;
+				text-transform: uppercase;
+				outline: none;
+				margin-right: 10px;
+				font-size: 13.6px;
+				@media screen and (max-width: $break-large) {
+					margin: 2px auto;
+				}
+			}
+			.login {
+				padding: 11px 30px;
+				background: #273544;
+				@media screen and (max-width: $break-large) {
+					display: inline-block;
+					float: left;
+					width: 45%;
+					margin-right: 0.3rem;
+				}
+			}
+			.signup {
+				margin-right: 20px;
+				padding: 11px 25px;
+				@media screen and (max-width: $break-large) {
+					display: inline-block;
+					float: left;
+					width: 45%;
+				}
+			}
+		}
+	}
 }
