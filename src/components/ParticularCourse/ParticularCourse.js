@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 
 import './ParticularCourse.css';
 
-import CourseIntro from './CourseIntro/CourseIntro';
 import CourseRating from './CourseRating/CourseRating';
+import CourseOverView from './CourseOverView/CourseOverView';
 import ReviewSection from './Review_Section/Review_Section';
-import Course_content from './Course_content/Course_content';
 import FAQ from './FAQ/FAQ';
 import MainVideoSlider from './MainVideoSlider/MainVideoSlider';
 import TrendingCourse from './TrendingCourse/TrendingCourse';
 import CourseContent from './CourseContent/CourseContent';
 import PastScore from './PastScore/PastScore';
+import OurMentors from './OurMentors/OurMentors';
 
 class ParticularCourse extends Component {
 	render() {
@@ -19,9 +19,10 @@ class ParticularCourse extends Component {
 				<CourseContent />
 				<CourseRating />
 				<ReviewSection />
-				<Course_content />
+				<CourseOverView />
 				<MainVideoSlider title="Demo" />
 				<TrendingCourse />
+				<OurMentors />
 				<FAQ />
 				<PastScore />
 			</div>

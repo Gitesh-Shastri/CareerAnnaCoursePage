@@ -10,19 +10,19 @@
 	line-height: 2rem;
 	padding-left: 2rem;
 	font-weight: 800;
-	font-size: 1.3rem;
+	font-size: 1.9rem;
 }
 .TrendingCourse .upcoming_languages .others h4 {
-	line-height: 2rem;
+	line-height: 3.2rem;
 	text-align: center;
 	font-weight: 700;
-	font-size: 1.1rem;
+	font-size: 1.7rem;
 }
 
 /*  Trending Course Playlist */
 .TrendingCourse .trendingCourseCard {
 	width: 300px;
-	padding: 1.5rem 0rem 1.5rem 3rem;
+	padding: 1.5rem 0rem 1.5rem 5rem;
 }
 .TrendingCourse .trendingCourseCardInside {
 	width: 269px;
@@ -33,21 +33,22 @@
 	padding: 0.5rem 1rem 0.5rem 1rem;
 }
 .TrendingCourse .trendingheading {
-	font-size: 2.2rem;
+	font-size: 2.8rem;
 	line-height: 30px;
 	font-weight: 800;
 }
 .TrendingCourse .trendingsubheading {
-	font-size: 1.8rem;
+	font-size: 2.8rem;
 	font-weight: 200;
+	line-height: 25px;
 }
 .TrendingCourse .trending_line {
-	width: 20%;
+	width: 50%;
 	position: relative;
 	left: 0%;
-	height: 0.1rem;
+	height: 0.2rem;
 	display: inline-block;
-	margin-top: 0rem;
+	margin-top: 1.5rem;
 	background: #000;
 }
 .TrendingCourse .trending_off {
@@ -71,7 +72,7 @@
 	padding-top: 2rem;
 	overflow-y: hidden;
 	overflow-x: auto;
-	width: 64.3%;
+	width: 60%;
 	margin-right: 15px;
 }
 .TrendingCourse .trending_playlist {
@@ -119,7 +120,7 @@ button[disabled] {
 	margin-top: 1.5rem;
 	.next_video_prev_video {
 		position: relative;
-		top: 145px;
+		top: 134px;
 		left: -10px;
 		background: transparent;
 		margin-right: 6px;
@@ -157,9 +158,9 @@ button[disabled] {
 	}
 	.TrendingCourse .trendingCourseCard {
 		width: 100%;
-		padding: 0px 0rem 0rem 0.5rem;
+		padding: 0px 0rem 0rem 1.5rem;
 	}
-	.TrendingCourse .upcoming_heading h4 {
+	.TrendingCourse .upcoming_heading {
 		text-align: center;
 	}
 	.TrendingCourse .next_video_right_video {
@@ -218,5 +219,12 @@ button[disabled] {
 	}
 	.arrow_small .fa {
 		font-size: 2rem;
+	}
+	.TrendingCourse .trendingsubheading,
+	.trendingheading {
+		display: inline-block;
+	}
+	.TrendingCourse .trendingsubheading {
+		padding-left: 0.5rem;
 	}
 }

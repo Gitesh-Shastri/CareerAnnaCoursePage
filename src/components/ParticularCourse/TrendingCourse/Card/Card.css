@@ -15,28 +15,40 @@
 }
 .Coursecard:hover .course_heading {
 	color: #1989cd;
+	font-weight: 600;
 }
 .colorBlue {
 	color: #1989cd;
 }
 .Coursecard .course_heading {
-	margin-top: 15px;
-	font-size: 1rem;
+	margin-top: 5px;
+	font-size: 1.6rem;
 	font-weight: 600;
 	backface-visibility: hidden;
+	line-height: 20px;
 	padding-left: 0.4rem;
-	min-height: 2.7rem;
+	min-height: 4.32rem;
 }
 .Coursecard .course_views,
 .rating_star {
-	font-size: 0.85rem;
+	font-size: 1.36rem;
 	padding-left: 0.4rem;
-	padding-top: 0.3rem;
+	line-height: 10px;
+	padding-top: 0rem;
 }
 .Coursecard .rating_star {
 	font-weight: 500;
 	color: #000;
-	font-size: 1.1rem;
+	font-size: 1.28rem;
+	margin-top: 0.2rem;
+}
+.Coursecard .rating_star .rating_percent {
+	font-size: 1.4rem;
+	position: relative;
+	top: 2.5px;
+}
+.Coursecard:hover .rating_star .rating_percent {
+	top: 2.5px;
 }
 .Coursecard .rating_star img {
 	width: 16px;

@@ -84,7 +84,7 @@ class FAQ extends Component {
 						'95%ile to 98%ile for good B-schools (NITIE, MDI, IITs)<br/>' +
 						'90%ile to 95%ile for decent B-schools (IMT, IMI, DSE, TAPMI, XIMB, KJ Somaiya)<br/>' +
 						'Apart from IIMs, FMS, SPJain Mumbai and NITIE Mumbai, no other major B School has' +
-						'sectional cutoff as well.<br/><br/>You can find past data of <a href="https://www.careeranna.com/articles/cat-2018-score-vs-percentile/">Score vs Percentile</a> here.</p>',
+						'sectional cutoff as well.<br/>You can find past data of <a href="https://www.careeranna.com/articles/cat-2018-score-vs-percentile/">Score vs Percentile</a> here.</p>',
 					index: 9
 				},
 				{
@@ -145,12 +145,12 @@ class FAQ extends Component {
 						Frequenty Asked
 						<span> Questions</span>
 					</div>
-					<div className="col-md-12 col-12 row px-0">
+					<div className="col-md-12 col-12 row px-0 question_row">
 						<div className="col-md-6 col-12 px-0 row">
 							{questions.map((question, i) => {
 								return (
 									<div
-										className="col-md-12 pl-0 question_tab"
+										className="col-md-12 col-12 pl-0 question_tab"
 										key={i}
 										onClick={this.handleClick.bind(this, i, this.props)}
 									>
@@ -172,7 +172,7 @@ class FAQ extends Component {
 										>
 											<div dangerouslySetInnerHTML={{ __html: question.ans }} />
 										</div>
-										<div className="faq_line" />
+										<div className="faq_line" hidden={question.index === particular_ques.index} />
 									</div>
 								);
 							}, this)}
@@ -181,7 +181,7 @@ class FAQ extends Component {
 							{questions2.map((question, i) => {
 								return (
 									<div
-										className="col-md-12 pl-0 question_tab"
+										className="col-md-12 col-12 pl-0 question_tab"
 										key={i}
 										onClick={this.handleClick.bind(this, i + 7, this.props)}
 									>
@@ -203,7 +203,7 @@ class FAQ extends Component {
 										>
 											<div dangerouslySetInnerHTML={{ __html: question.ans }} />
 										</div>
-										<div className="faq_line" />
+										<div className="faq_line" hidden={question.index === particular_ques.index} />
 									</div>
 								);
 							}, this)}

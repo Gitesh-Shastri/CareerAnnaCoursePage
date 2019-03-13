@@ -58,15 +58,17 @@ class MainVideoSlider extends Component {
 	}
 
 	timer() {
-		if (!this.state.showModal) {
-			if (this.state.video_item.index === this.state.videos_playlist.length - 1) {
-				this.setState({
-					video_item: this.state.videos_playlist[0]
-				});
-			} else {
-				this.setState({
-					video_item: this.state.videos_playlist[this.state.video_item.index + 1]
-				});
+		if (window.innerWidth > 650) {
+			if (!this.state.showModal) {
+				if (this.state.video_item.index === this.state.videos_playlist.length - 1) {
+					this.setState({
+						video_item: this.state.videos_playlist[0]
+					});
+				} else {
+					this.setState({
+						video_item: this.state.videos_playlist[this.state.video_item.index + 1]
+					});
+				}
 			}
 		}
 	}
@@ -92,7 +94,7 @@ class MainVideoSlider extends Component {
 	};
 
 	prevProperty = () => {
-		if (this.state.video_item.index == 0) {
+		if (this.state.video_item.index === 0) {
 			return;
 		}
 		const newIndex = this.state.video_item.index - 1;
@@ -123,6 +125,7 @@ class MainVideoSlider extends Component {
 						height="366"
 						src={showModal ? video_item.url_link : ''}
 						frameBorder="0"
+						autoPlay="true"
 						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 					/>

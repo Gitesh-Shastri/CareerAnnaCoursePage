@@ -14,8 +14,8 @@ export default class CourseContent extends Component {
 					CAT 2019 <span>COACHING</span>
 				</div>
 			),
-			price: '4,999',
-			discounted: '14,999',
+			price: '',
+			discounted: '',
 			isLogin: false,
 			showLoginModal: false,
 			request: {
@@ -32,7 +32,8 @@ export default class CourseContent extends Component {
 					isValid: true
 				},
 				product_id: '216'
-			}
+			},
+			error_message: ''
 		};
 	}
 
@@ -47,7 +48,10 @@ export default class CourseContent extends Component {
 	}
 
 	componentDidMount() {
-		axios.get('https://www.careeranna.com/websiteapi/getCourseDetails').then((response) => {
+		const formData = new FormData();
+		formData.append('product_id', this.state.request.product_id);
+
+		axios.post('https://www.careeranna.com/websiteapi/getCourseDetails', formData).then((response) => {
 			this.setState({ price: response.data.price, discounted: response.data.discount });
 		});
 		axios.get('https://www.careeranna.com/websiteapi/isLoggedIn').then((response) => {
@@ -105,40 +109,65 @@ export default class CourseContent extends Component {
 
 	changeNameSubmit = (event) => {
 		let request = this.state.request;
+		let error_message = '';
 		request.name.value = this.capitalize(event.target.value);
 		let value = event.target.value;
 		value = value.split(' ').join('');
 		if (value.match('[0-9\\W_]+') == null) {
 			request.name.isValid = true;
+			error_message = '';
 		} else {
 			request.name.isValid = false;
+			error_message = 'Enter Valid Name';
 		}
-		this.setState({ submit: false, request: request });
+		this.setState({ submit: false, request: request, error_message: error_message });
 	};
 
 	changeEmailSubmit = (event) => {
 		let request = this.state.request;
+		let error_message = '';
 		request.email.value = event.target.value;
 		let pattern =
 			"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-		if (!(request.email.value.match(pattern) == null)) {
-			request.email.isValid = true;
+		if (
+			event.target.value.length > 0 &&
+			event.target.value.indexOf('@') !== -1 &&
+			event.target.value.indexOf('.') !== -1
+		) {
+			if (!(request.email.value.match(pattern) == null)) {
+				request.email.isValid = true;
+				error_message = '';
+			} else {
+				request.email.isValid = false;
+				error_message = 'Enter Valid Email';
+			}
 		} else {
-			request.email.isValid = false;
+			request.email.isValid = true;
+			error_message = '';
 		}
-		this.setState({ submit: false, request: request });
+		this.setState({ submit: false, request: request, error_message: error_message });
 	};
 
 	changePhoneSubmit = (event) => {
 		let request = this.state.request;
+		let error_message = '';
 		request.mobile.value = event.target.value;
-		console.log(request.mobile.value);
-		if (!(request.mobile.value.match('[0-9]+') == null)) {
-			request.mobile.isValid = true;
+		if (event.target.value.length > 9) {
+			if (event.target.value.match('[A-Za-z\\W_]+') != null) {
+				request.mobile.isValid = false;
+				error_message = 'Enter Valid Mobile Number';
+				if ((request.email.isValid = false)) {
+					error_message = 'Enter Valid Mobile Number, Enter Valid Email';
+				}
+			} else {
+				request.mobile.isValid = true;
+				error_message = '';
+			}
 		} else {
-			request.mobile.isValid = false;
+			request.mobile.isValid = true;
+			error_message = '';
 		}
-		this.setState({ submit: false, request: request });
+		this.setState({ submit: false, request: request, error_message: error_message });
 	};
 
 	submitRequest = (event) => {
@@ -149,19 +178,11 @@ export default class CourseContent extends Component {
 			formData.append('name', request.name.value);
 			formData.append('mobile', request.mobile.value);
 			formData.append('email', request.email.value);
-			formData.append('product_id', request.name.value);
+			formData.append('product_id', request.product_id);
 
-			let bodyFormData = {
-				name: request.name.value,
-				mobile: request.mobile.value,
-				email: request.email.value,
-				product_id: request.product_id
-			};
-			console.log(bodyFormData);
 			axios
 				.post('https://www.careeranna.com/websiteapi/requestCall', formData)
 				.then((response) => {
-					console.log(response);
 					alert('Call Submitted !');
 				})
 				.catch((err) => {
@@ -177,8 +198,8 @@ export default class CourseContent extends Component {
 	}
 
 	onSubmitCall = () => {
-		//	this.setState({ showLoginModal: true });
-		alert('Plzzz Log In Or SignUp To Enroll');
+		this.setState({ showLoginModal: true });
+		//alert('Please Sign Up or Log in to Continue');
 	};
 
 	render() {
@@ -196,6 +217,8 @@ export default class CourseContent extends Component {
 		date.setDate(date.getDate() + 1);
 		const updateddate = this.formatDate(date);
 
+		const error_message = this.state.error_message;
+
 		return (
 			<div className="upper_main">
 				<LoginModel show={showLoginModal} modalClosed={() => this.hideModal()} />
@@ -210,7 +233,7 @@ export default class CourseContent extends Component {
 										<b>2019 syllabus.</b>
 									</li>
 									<li>
-										48 Students with <b>99+ Percentile in CAT 2018.</b>
+										126 Students with <b>99+ Percentile in CAT 2018.</b>
 									</li>
 									<li>
 										<b>CAT Mock Test Series</b> of 15 All India Mocks.
@@ -233,7 +256,10 @@ export default class CourseContent extends Component {
 								</div>
 								<div className="enroll_and_other_buttons">
 									{isLoggedIn ? (
-										<a href="https://www.careeranna.com/Cart/add/216" className="enroll_now">
+										<a
+											href={'https://www.careeranna.com/Cart/add/' + request.product_id}
+											className="enroll_now"
+										>
 											Enroll Now
 										</a>
 									) : (
@@ -242,39 +268,55 @@ export default class CourseContent extends Component {
 										</a>
 									)}
 									<Scrollchor to="#video" animate={{ offset: 0, duration: 300 }}>
-										<div href="#demoVideo" className="demo_button d-inline-block">
-											Demo Videos
+										<div className="demo_button d-inline-block">
+											Demo Videos{' '}
+											<i
+												style={{ position: 'relative', top: '1.5px' }}
+												class="fas fa-angle-down    "
+											/>{' '}
 										</div>
 									</Scrollchor>
-									<Scrollchor to="#pastScore" animate={{ offset: 0, duration: 300 }}>
-										<div className="past_score_link">View Past Results</div>
-									</Scrollchor>
+									{window.innerWidth > 650 ? (
+										<Scrollchor to="#pastScore" animate={{ offset: 0, duration: 300 }}>
+											<div className="past_score_link">
+												Past Results{' '}
+												<i
+													style={{ position: 'relative', top: '1.5px' }}
+													class="fas fa-angle-down    "
+												/>
+											</div>
+										</Scrollchor>
+									) : null}
 								</div>
 							</div>
 							<div className="request_call">
 								<div className="heading">
 									<img
 										src="https://careeranna.com/home/static/media/cat/request_call.png"
-										alt=""
+										alt="Request Call"
 									/>{' '}
 									<span>Request a Call Back</span>
 								</div>
+								{!(request.name.isValid && request.mobile.isValid && request.email.isValid) ? (
+									<div class="alert alert-danger">
+										<strong>{error_message}</strong>
+									</div>
+								) : null}
 								<form class="request_form" onSubmit={this.submitRequest}>
 									<div class="input-group">
 										<input
 											type="text"
 											name="name"
 											autoComplete="off"
-											className={request.name.isTouched && !request.name.isValid ? 'error' : ''}
+											className={
+												request.name.value.length > 0 ? 'form-control touched' : 'form-control'
+											}
 											id="name"
 											placeholder="Full Name"
 											onChange={this.changeNameSubmit}
-											class="form-control"
 											required
 										/>
-										{!request.name.isValid && request.name.value != '' ? (
-											<small>Enter A Valid Name.</small>
-										) : null}
+										<label>Full Name</label>
 									</div>
 									<div class="input-group">
 										<input
@@ -283,18 +325,19 @@ export default class CourseContent extends Component {
 											maxLength="10"
 											autoComplete="off"
 											name="mobile"
-											className={
-												request.mobile.isTouched && !request.mobile.isValid ? 'error' : ''
-											}
 											id="mobile"
 											placeholder="Contact Number"
-											class="form-control"
+											className={
+												request.mobile.value.length > 0 ? (
+													'form-control touched'
+												) : (
+													'form-control'
+												)
+											}
 											onChange={this.changePhoneSubmit}
 											required
 										/>
-										{!request.mobile.isValid && request.mobile.value !== '' ? (
-											<small>Enter A Valid Number.</small>
-										) : null}
+										<label>Contact Number</label>
 									</div>
 									<div class="input-group">
 										<input
@@ -302,18 +345,17 @@ export default class CourseContent extends Component {
 											pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
 											autoComplete="off"
 											name="email"
-											className={request.email.isTouched && !request.email.isValid ? 'error' : ''}
+											className={
+												request.email.value.length > 0 ? 'form-control touched' : 'form-control'
+											}
 											id="email"
 											placeholder="Enter your email"
-											onKeyPress={this.changeEmailSubmit}
-											class="form-control"
+											onChange={this.changeEmailSubmit}
 											required
 										/>
-										{!request.email.isValid && request.email.value != '' ? (
-											<small>Enter A Valid Email</small>
-										) : null}
+										<label>Enter your email</label>
 									</div>
-									<input type="text" name="product_id" value="216" hidden />
+									<input type="text" name="product_id" value={request.product_id} hidden />
 									<button
 										className={
 											!(

@@ -1,59 +1,66 @@
 .CourseContent {
-	margin-top: 75px;
-	background: url('https://www.careeranna.com/home/static/media/cat/cat_header_image.png');
+	background-image: linear-gradient(180deg, #20242fcf 0%, rgba(255, 255, 255, 0.15) 488.9%),
+		url('https://www.careeranna.com/home/static/media/cat/main_header-min.png');
+	opacity: 0.88;
 	background-size: cover;
+	background-position: top left;
 	background-repeat: no-repeat;
 	.container {
-		padding-top: 55px;
-		margin-left: 70px;
-		height: 535px;
+		padding-top: 4%;
+		margin-left: 7rem;
+		height: auto;
 		@media screen and (max-width: '650px') {
-			padding-top: 2rem;
-			padding-bottom: 2rem;
-			padding-left: 1rem !important;
-			margin-left: 0rem;
-			width: 100%;
 			height: auto;
-			margin-right: 0rem;
+
+			// padding-top: 2rem;
+			// padding-bottom: 2rem;
+			padding-left: 2rem !important;
+			margin-left: 0rem;
+			// width: 100%;
+			// margin-right: 0rem;
+		}
+		@media screen and (min-width: '651px') and (max-width: '1199px') {
+			height: auto;
 		}
 		.row {
 			.content {
-				width: 550px;
+				width: 55rem;
 				color: white;
 				@media screen and (max-width: '650px') {
-					width: 350px;
+					width: 35rem;
+					padding-left: 2rem;
 				}
 				.course_name {
-					padding-left: 1px;
+					padding-left: .1rem;
 					font-weight: 900;
-					font-size: 27px;
+					font-size: 2.7rem;
 					span {
 						font-weight: 50;
 					}
 				}
 				.course_intro_list {
-					padding-top: 21px;
+					padding-top: 2.1rem;
 					li {
-						width: 430px;
-						font-size: 18px;
+						width: 43rem;
+						font-size: 1.8rem;
 						text-align: left;
-						padding-left: 45px;
+						padding-left: 3rem;
 						font-weight: 50;
-						padding-bottom: 15px;
+						padding-bottom: 1.5rem;
 						@media screen and (max-width: '650px') {
-							width: 300px;
+							width: 30rem;
 						}
 						&:before {
 							content: '';
-							background: url('https://careeranna.com/home/static/media/cat/cat_course_content_tick.png');
+							background: white;
 							position: absolute;
-							left: 67px;
-							margin-top: 4px;
+							left: 6.7rem;
+							margin-top: 1.1rem;
 							background-repeat: no-repeat;
-							width: 30px;
-							height: 31px;
+							width: 1.5rem;
+							height: .5rem;
 							@media screen and (max-width: '650px') {
-								left: 1rem;
+								left: 4rem;
 							}
 						}
 						b {
@@ -61,94 +68,135 @@
 						}
 					}
 					li.end {
-						padding-bottom: 10px;
+						padding-bottom: 1rem;
 					}
 				}
 				.course_price_and_offer {
 					.intro_max_price {
 						opacity: 0.8;
+						padding-right: 1rem;
+						font-size: 1.4rem;
 					}
 					.intro_offer_price {
-						font-size: 1.25rem;
+						font-size: 2rem;
 					}
 					.intro_offer_expire {
-						font-size: 14px;
+						font-size: 1.4rem;
 					}
 				}
 				.enroll_and_other_buttons {
 					margin-top: 2rem;
+					margin-bottom: 6rem;
 					.enroll_now {
 						background: #1989cc;
-						border-radius: 3px;
-						font-size: 18px;
+						border-radius: .3rem;
+						font-size: 1.8rem;
 						font-weight: 600;
-						padding: 14px 30px;
-						margin-right: 15px;
+						padding: 1.4rem 3rem;
+						margin-right: 1.5rem;
 					}
 					.demo_button {
 						background: transparent;
-						border: 1.25px solid #fff;
-						border-radius: 3px;
-						font-size: 17px;
+						border: .125rem solid #fff;
+						border-radius: .3rem;
+						font-size: 1.7rem;
 						font-weight: 600;
-						padding: 10.5px 21px;
-					}
-				}
-				.course_price_and_offer {
-					.intro_max_price {
-						padding-right: 10px;
+						padding: 1.05rem 2.1rem;
 					}
 				}
 			}
 			.request_call {
-				margin-left: 17%;
-				max-height: 350px;
-				margin-top: 10px;
-				width: 285px;
+				margin: auto;
+				max-height: 35rem;
+				margin-top: 3.5rem;
+				width: 28.5rem;
 				background: #fff;
 				color: #000;
-				border-radius: 3px;
-				padding: 25px;
-				padding-top: 25px;
-				font-size: 17px;
+				border-radius: .3rem;
+				padding: 2.5rem;
+				padding-top: 2.5rem;
+				font-size: 1.7rem;
 				font-weight: 400;
 				@media screen and (max-width: '650px') {
-					margin-left: 2rem;
-					margin-top: 2rem;
+					margin-left: auto !important;
+					margin-right: auto !important;
+					margin-bottom: 4rem;
+				}
+				@media screen and (min-width: '651px') and (max-width: '1199px') {
+					margin-left: auto !important;
+					margin-right: auto !important;
 					margin-bottom: 4rem;
 				}
 				.heading {
-					padding-bottom: 30px;
+					padding-bottom: 3rem;
 					span {
-						font-size: 19px;
+						font-size: 1.9rem;
 						font-weight: 100;
 					}
 					img {
-						margin-right: 5px;
-						width: 26px;
-						margin-top: -3.6px;
+						margin-right: .5rem;
+						width: 2.6rem;
+						margin-top: -.36rem;
 					}
 				}
 				.input-group {
-					min-height: 60px;
+					min-height: 6rem;
+					background: transparent;
 					input {
-						font-size: 13px;
+						font-size: 1.3rem;
 						border: none;
-						border-bottom: 1px solid #ccc;
+						border-bottom: .1rem solid #ccc;
+						outline: none;
+						height: 4rem;
+						box-shadow: none;
+						&:focus {
+							border: 1px solid #1989cd !important;
+						}
+						&:focus + label {
+							top: -8px;
+							opacity: 1;
+							color: #1989cd;
+							background: #fff;
+							z-index: 4;
+						}
+						& + label {
+							position: absolute;
+							z-index: -1;
+							font-size: 10px;
+							padding-left: 5px;
+							padding-right: 5px;
+							top: 10px;
+							left: 5%;
+							opacity: 0.7;
+							transition: all 300ms ease-in;
+						}
+						&.touched {
+							border: 1px solid #1989cd !important;
+							& + label {
+								top: -8px;
+								opacity: 1;
+								color: #1989cd;
+								background: #fff;
+								z-index: 4;
+							}
+						}
 					}
 				}
+				.alert {
+					font-size: 1rem;
+				}
 				.submit_request {
-					border-radius: 25px;
+					border-radius: 2.5rem;
 					outline: none;
-					font-size: 14px;
-					padding-top: 8px;
-					padding-left: 25px;
-					padding-right: 25px;
-					margin-top: 10px;
+					font-size: 1.4rem;
+					padding-top: .8rem;
+					padding-left: 2.5rem;
+					padding-right: 2.5rem;
+					margin-top: 0rem;
 					margin-left: 27%;
-					padding-bottom: 8px;
+					padding-bottom: .8rem;
 					color: #000 !important;
-					border: 0.8px solid #000;
+					border: .08rem solid #000;
 					background: transparent;
 				}
 			}
@@ -156,12 +204,12 @@
 	}
 }
 .past_score_link {
-	margin-left: 15px;
+	margin-left: 1.5rem;
 	color: white;
-	border-radius: 3px;
-	font-size: 17px;
+	border-radius: .3rem;
+	font-size: 1.7rem;
 	font-weight: 600;
-	padding: 10.5px 21px;
+	padding: 1.05rem 2.4rem;
 	border: 1.25px solid #fff;
 	display: inline-block;
 }

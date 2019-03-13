@@ -51,7 +51,7 @@ class CourseRating extends Component {
 		} else {
 			if (window.scrollY > 1400) {
 				this.setState({ render: false });
-			} else if (window.scrollY > 1050) {
+			} else if (window.scrollY > 550) {
 				this.setState({ render: true });
 			} else {
 				this.setState({ render: false });

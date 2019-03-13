@@ -1,12 +1,69 @@
 import React, { Component } from 'react';
-import './Footer.css';
+import './Footer.scss';
+
+import axios from 'axios';
 
 class Footer extends Component {
+	state = {
+		email: '',
+		inValidEmail: false
+	};
+
+	setEamilValue = (event) => {
+		let email = this.state.email;
+		email = event.target.value;
+		this.setState({ email: email });
+		let value = event.target.value;
+		let pattern =
+			"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+		if (value.length > 0 && value.indexOf('@') !== -1) {
+			if (value.match(pattern) == null) {
+				this.setState({
+					inValidEmail: true,
+					error_message: 'Enter A Valid Email'
+				});
+			} else {
+				this.setState({
+					inValidEmail: false,
+					error_message: ''
+				});
+			}
+		} else {
+			this.setState({
+				inValidEmail: false,
+				error_message: ''
+			});
+		}
+	};
+
+	sendSuscribeRequest = (event) => {
+		event.preventDefault();
+		let emailvalue = this.state.email;
+		if (emailvalue.length > 0 && emailvalue.indexOf('@') !== -1) {
+			const formData = new FormData();
+			formData.append('email', emailvalue);
+			formData.append('source', 'Footer_CAT_2019_COACHING');
+			axios
+				.post('https://www.careeranna.com/websiteapi/subscribeToNewsLetter', formData)
+				.then((response) => {
+					this.setState({ inValidEmail: false });
+				})
+				.catch((err) => {
+					this.setState({ inValidEmail: true });
+					alert('Some Error Occured !');
+				});
+		}
+	};
+
 	render() {
+		const inValidEmail = this.state.inValidEmail;
+		const email = this.state.email;
+		const error_message = this.state.error_message;
+
 		return (
 			<footer className="footer">
 				<div className="row">
-					<div className="col-12 col-md-6 px-0">
+					<div className="col-12 col-md-5 px-0">
 						<div className="row">
 							<div className="col-md-12 px-0 footer_left_heading">careeranna</div>
 
@@ -17,27 +74,47 @@ class Footer extends Component {
 								<ul className="list-inline">
 									<li>
 										<a href="https://m.facebook.com/careerannacorp/">
-											<i className="fab fa-facebook-f" />
-										</a>
-									</li>
-									<li>
-										<a href="https://www.linkedin.com/company/careeranna">
-											<i className="fab fa-linkedin" />
-										</a>
-									</li>
-									<li>
-										<a href="https://www.instagram.com/careeranna">
-											<i className="fab fa-instagram" />
-										</a>
-									</li>
-									<li>
-										<a href="https://twitter.com/CareerAnna">
-											<i className="fab fa-twitter" />
+											<img
+												src="https://www.careeranna.com/home/static/media/facebook.svg"
+												alt=""
+												width="28px"
+											/>
 										</a>
 									</li>
 									<li>
 										<a href="https://www.youtube.com/channel/UCZmLZ68KNZotm3BxkGsuU4g">
-											<i className="fab fa-youtube" />
+											<img
+												src="https://www.careeranna.com/home/static/media/youtube.svg"
+												alt=""
+												width="28px"
+											/>
+										</a>
+									</li>
+									<li>
+										<a href="https://www.linkedin.com/company/careeranna">
+											<img
+												src="https://www.careeranna.com/home/static/media/linkedin.svg"
+												alt=""
+												width="28px"
+											/>
+										</a>
+									</li>
+									<li>
+										<a href="https://twitter.com/CareerAnna">
+											<img
+												src="https://www.careeranna.com/home/static/media/twitter.svg"
+												alt=""
+												width="28px"
+											/>
+										</a>
+									</li>
+									<li>
+										<a href="https://www.instagram.com/careeranna">
+											<img
+												src="https://www.careeranna.com/home/static/media/insta.svg"
+												alt=""
+												width="28px"
+											/>
 										</a>
 									</li>
 								</ul>
@@ -45,19 +122,31 @@ class Footer extends Component {
 
 							<div className="col-md-12 subs_form row">
 								<h4 className="col-md-12 padding-none">Subscribe to our newsletter</h4>
-								<form action="#" method="post" className="row col-md-12 padding-none">
+								{inValidEmail ? (
+									<div class="alert alert-danger">
+										<strong>{error_message}</strong>
+									</div>
+								) : null}
+
+								<form onSubmit={this.sendSuscribeRequest} className="row col-md-12 padding-none">
 									<div className="form-group col col-md-6 col-sm-6 padding-none">
 										<input
 											type="email"
-											className="form-control"
 											name="email"
 											required=""
+											onChange={this.setEamilValue}
 											placeholder="Enter your Email"
-											id=""
+											id="subscribe_email"
+											className={email.length > 0 ? 'form-control touched' : 'form-control'}
 										/>
+										<label>Enter your Email</label>
 									</div>
 									<div className="col-md-5 col col-sm-6 padding-none">
-										<button className="btn btn-primary" type="submit">
+										<button
+											className="btn btn-primary"
+											type="submit"
+											onClick={this.sendSuscribeRequest}
+										>
 											Subscribe
 										</button>
 									</div>
@@ -65,9 +154,9 @@ class Footer extends Component {
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6 row footer_left_links">
+					<div className="col-md-7 pl-4 row footer_left_links">
 						{/* pl belongs to bootstrap 4 className for padding check documentation*/}
-						<div className="col-md-3 col-6 pl-0 pr-0">
+						<div className="col-md-2 col-6 pl-0 pr-0">
 							<h6>FREE VIDEO RESOURCE</h6>
 							<ul>
 								<li>
@@ -93,7 +182,7 @@ class Footer extends Component {
 							</ul>
 						</div>
 
-						<div className="col-md-2 col-6 pl-0 pr-0">
+						<div className="col-md-1 col-6 pl-3 pr-3">
 							<h6>MBA</h6>
 							<ul>
 								<li>
@@ -134,8 +223,8 @@ class Footer extends Component {
 							</ul>
 						</div>
 
-						<div className="col-md-2 col-6 pl-0 pr-0">
-							<h6>Certificate Courses</h6>
+						<div className="col-md-2 col-6 pl-0 pr-0 ml-5 mr-0 certificate">
+							<h6>CERTIFICATE COURSE</h6>
 							<ul>
 								<li>
 									<a
@@ -171,7 +260,7 @@ class Footer extends Component {
 								</li>
 							</ul>
 						</div>
-						<div className="col-md-2 col-6 pl-0 pr-0">
+						<div className="col-md-2 col-6 pl-3 pr-0">
 							<h6>RESOURCE</h6>
 							<ul>
 								<li>

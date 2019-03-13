@@ -45,7 +45,7 @@ class Navigation extends Component {
 			telugu_video = 'तेलुगू वीडियो';
 			signup = 'साइन अप';
 			login = 'लॉग इन';
-		} else if (this.props.lang == 'Tamil') {
+		} else if (this.props.lang === 'Tamil') {
 			mba = 'எம்பிஏ';
 			hindi_videos = 'ஹிந்தி வீடியோக்கள்';
 			tamil_video = 'தமிழ் வீடியோக்கள்';
@@ -56,7 +56,7 @@ class Navigation extends Component {
 
 		return (
 			<div className="Navigation">
-				<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
 					<button
 						className="navbar-toggler"
 						type="button"

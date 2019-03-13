@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Review_Section.css';
+import './Review_Section.scss';
 import axios from 'axios';
 import Card from './Card/Card';
 
@@ -23,12 +23,15 @@ class Review_Section extends Component {
 			},
 			disabled: true,
 			pageno: 0,
-			showVideo: true
+			showVideo: true,
+			isLoading: true,
+			product_id: '216'
 		};
 	}
 
 	componentDidMount = () => {
-		axios.get('https://www.careeranna.com/webiste-api/fetchCourseReview.php?id=216').then((response) => {
+		let product_id = this.state.product_id;
+		axios.get('https://www.careeranna.com/webiste-api/fetchCourseReview.php?id=' + product_id).then((response) => {
 			let reviews_temp = [];
 			for (let i = 0; i < response.data.length; ) {
 				let review_array_temp = [];
@@ -61,13 +64,15 @@ class Review_Section extends Component {
 				reviews_temp.push(review_array_temp);
 				i += 4;
 			}
-			this.setState({ reviews: reviews_temp });
-			this.intervalId = setInterval(this.timer.bind(this), 4000);
+			this.setState({ reviews: reviews_temp, isLoading: false });
+			if (window.innerWidth > 650) {
+				this.intervalId = setInterval(this.timer.bind(this), 4000);
+			}
 		});
 	};
 	timer() {
 		const newpageno = this.state.pageno + 1;
-		if (newpageno === this.state.reviews.length) {
+		if (newpageno === this.state.reviews.length - 2) {
 			this.setState({
 				pageno: 0
 			});
@@ -84,7 +89,7 @@ class Review_Section extends Component {
 
 	nextReview = () => {
 		const pageno = this.state.pageno;
-		const length = this.state.reviews.length - 1;
+		const length = this.state.reviews.length - 2;
 		if (pageno < length) {
 			this.setState({
 				pageno: pageno + 1
@@ -104,6 +109,7 @@ class Review_Section extends Component {
 	render() {
 		const { reviews } = this.state;
 		const pageno = this.state.pageno;
+		const isLoading = this.state.isLoading;
 
 		return (
 			<section className="review_sec">
@@ -116,11 +122,16 @@ class Review_Section extends Component {
 						</div>
 					</div>
 					<div className="col-md-9 col-12 px-0">
+						{isLoading ? (
+							<div id="preloader">
+								<div id="loader" />
+							</div>
+						) : null}
 						<div className="user_review_wrapper">
 							<div
 								className="user_review_playlist"
 								style={{
-									transform: `translateX(-${900 * pageno}px)`
+									transform: `translateX(-${pageno / reviews.length * 100}%)`
 								}}
 							>
 								{reviews.map((particular_review, i) => (

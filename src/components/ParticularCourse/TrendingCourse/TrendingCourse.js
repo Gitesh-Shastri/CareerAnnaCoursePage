@@ -7,12 +7,17 @@ import axios from 'axios';
 class TrendingCourse extends Component {
 	state = {
 		courses: [],
-		course: {}
+		course: {},
+		isLoading: true,
+		product_id: '216'
 	};
 
 	componentDidMount() {
-		axios.get('https://www.careeranna.com/websiteapi/getCatRelatedCourse').then((response) => {
-			this.setState({ courses: response.data, course: response.data[0] });
+		const formData = new FormData();
+		formData.append('product_id', this.state.product_id);
+
+		axios.post('https://www.careeranna.com/websiteapi/getCatRelatedCourse', formData).then((response) => {
+			this.setState({ courses: response.data, course: response.data[0], isLoading: false });
 		});
 	}
 
@@ -26,16 +31,19 @@ class TrendingCourse extends Component {
 	};
 
 	prevProperty = () => {
-		const newIndex = this.state.course.index - 1;
-		this.setState({
-			course: this.state.courses[newIndex]
-		});
+		if (this.state.course.index > 0) {
+			const newIndex = this.state.course.index - 1;
+			this.setState({
+				course: this.state.courses[newIndex]
+			});
+		}
 	};
 
 	render() {
 		const course = this.state.course;
 
 		const courses = this.state.courses;
+		const isLoading = this.state.isLoading;
 
 		return (
 			<div className="TrendingCourse">
@@ -53,6 +61,11 @@ class TrendingCourse extends Component {
 						<i className="fa fa-angle-left" />
 					</button>
 					<div className="course_course_list">
+						{isLoading ? (
+							<div id="preloader">
+								<div id="loader" />
+							</div>
+						) : null}
 						<div
 							className="trending_playlist"
 							style={{

@@ -1,36 +1,46 @@
 $break-small: 650px;
 .faq {
-	background: #f2f2f2;
-	padding-top: 3.5rem;
-	margin-top: 3rem;
-	padding-right: 70px;
 	padding-left: 70px;
-	padding-bottom: 3rem;
+	padding-right: 70px;
+	padding-top: 1rem;
+	padding-bottom: 5rem;
 	@media screen and (max-width: $break-small) {
 		padding-left: 25px;
 		padding-right: 25px;
 	}
 	.faq_heading {
-		font-size: 2rem;
-		padding-bottom: 1rem;
+		font-size: 2.8rem;
+		padding: 2.2rem;
+		padding-left: 70px;
+		border-radius: 10px;
+		margin-bottom: 3rem;
+		width: 100%;
+		background: #273544;
+		color: white;
 		@media screen and (max-width: $break-small) {
-			font-size: 1.5rem;
+			font-size: 2.5em;
 		}
 	}
 	.faq_heading span {
 		font-weight: 900;
 	}
 	.question_tab {
+		margin-right: 70px;
+		margin-left: 70px;
+		margin-bottom: 0.5rem;
 		width: 48%;
-		margin-right: 2%;
 		@media screen and (max-width: $break-small) {
 			width: 100%;
+			margin-right: 25px;
+			margin-left: 25px;
 		}
 	}
 	.answer:before {
 		content: 'A.';
 		position: absolute;
-		font-weight: 900;
+		left: 0rem;
+		color: black;
+		font-weight: 600;
 		line-height: 33px;
 		font-size: 20px;
 	}
@@ -42,27 +52,41 @@ $break-small: 650px;
 		transition: opacity 450ms ease-in-out;
 	}
 	.answer.active {
-		width: 90%;
+		width: 92.5%;
+		margin-left: 2.5rem;
 		opacity: 1;
 		visibility: visible;
 		height: auto;
+		border-radius: 10px;
+		border: .5px solid rgba(0, 0, 0, 0.5);
+		color: black;
 	}
 	.answer p {
-		font-size: 0.8rem;
-		margin-left: 2.5rem;
-		overflow-y: scroll;
-		max-height: 112px;
-		font-weight: 300;
+		font-size: 1.6rem;
+		margin-left: 1rem;
+		max-height: 100px;
+		font-weight: 1;
 		padding: 0.5rem;
+		padding-top: 1rem;
 		position: relative;
-		background: #1e313a;
 		border-radius: 5px;
-		color: white;
+		color: black;
+		line-height: 24px;
+		overflow-y: auto;
+		margin-bottom: 0px;
+		margin-right: 0.5px;
+		padding-left: 1rem;
+		padding-right: 5rem;
+		background: #efefef;
+		margin-left: 0rem;
+		a {
+			color: #1989cd;
+		}
 	}
 	.question.active {
 		opacity: 1;
-		font-size: 1.2rem;
-		font-weight: 900;
+		font-size: 2rem;
+		font-weight: 600;
 	}
 	.question_tab .faq_line {
 		height: 1px;
@@ -72,9 +96,48 @@ $break-small: 650px;
 	}
 	.question {
 		cursor: pointer;
-		font-size: 0.9rem;
+		font-size: 1.4rem;
 		opacity: 0.8;
-		padding-top: 1rem;
-		padding-bottom: 1rem;
+		padding-top: 1.3rem;
+		padding-bottom: 1.3rem;
+	}
+	::-webkit-scrollbar {
+		width: 7.5px;
+		display: block !important;
+		border-radius: 10px;
+		position: absolute;
+		left: -10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #ccc;
+		border-bottom-right-radius: 10px;
+		border-top-right-radius: 10px;
+		margin-left: 10px !important;
+		position: absolute;
+		left: -10px;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #273544;
+		padding-left: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #273544;
+		border-radius: 150px;
+		position: absolute;
+		left: -10px;
+	}
+}
+.row .question_row {
+	padding-right: 100px !important;
+	@media screen and (max-width: $break-small) {
+		padding-right: 25px !important;
 	}
 }
