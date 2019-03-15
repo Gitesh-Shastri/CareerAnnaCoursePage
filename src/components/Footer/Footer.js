@@ -77,7 +77,7 @@ class Footer extends Component {
 											<img
 												src="https://www.careeranna.com/home/static/media/facebook.svg"
 												alt=""
-												width="28px"
+												width="24px"
 											/>
 										</a>
 									</li>
@@ -86,7 +86,7 @@ class Footer extends Component {
 											<img
 												src="https://www.careeranna.com/home/static/media/youtube.svg"
 												alt=""
-												width="28px"
+												width="24px"
 											/>
 										</a>
 									</li>
@@ -95,7 +95,7 @@ class Footer extends Component {
 											<img
 												src="https://www.careeranna.com/home/static/media/linkedin.svg"
 												alt=""
-												width="28px"
+												width="24px"
 											/>
 										</a>
 									</li>
@@ -104,7 +104,7 @@ class Footer extends Component {
 											<img
 												src="https://www.careeranna.com/home/static/media/twitter.svg"
 												alt=""
-												width="28px"
+												width="24px"
 											/>
 										</a>
 									</li>
@@ -113,7 +113,7 @@ class Footer extends Component {
 											<img
 												src="https://www.careeranna.com/home/static/media/insta.svg"
 												alt=""
-												width="28px"
+												width="24px"
 											/>
 										</a>
 									</li>
@@ -154,7 +154,7 @@ class Footer extends Component {
 							</div>
 						</div>
 					</div>
-					<div className="col-md-7 pl-4 row footer_left_links">
+					<div className="col-md-7 pl-0 row footer_left_links">
 						{/* pl belongs to bootstrap 4 className for padding check documentation*/}
 						<div className="col-md-2 col-6 pl-0 pr-0">
 							<h6>FREE VIDEO RESOURCE</h6>

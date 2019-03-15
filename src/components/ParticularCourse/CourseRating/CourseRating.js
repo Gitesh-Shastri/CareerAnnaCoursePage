@@ -84,6 +84,11 @@ class CourseRating extends Component {
 		window.addEventListener('scroll', this.hideBar);
 	}
 
+	formatRatings(rating) {
+		var parts = rating.toString().split('.');
+		return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (parts[1] ? '.' + parts[1] : '');
+	}
+
 	render() {
 		const ratings = this.state.ratings;
 		const render = this.state.render;
@@ -100,7 +105,7 @@ class CourseRating extends Component {
 							<span className="rating_off_5">5</span>
 						</h3>
 						<h4>ratings</h4>
-						<h5>based on {learners} students</h5>
+						<h5>by {this.formatRatings(learners)} students</h5>
 					</div>
 					{render ? (
 						<div className="col-md-9 col-12 row px-0 course_rating_right_wrapper">
