@@ -9,7 +9,7 @@ class TrendingCourse extends Component {
 		courses: [],
 		course: {},
 		isLoading: true,
-		product_id: '216'
+		product_id: this.props.product_id
 	};
 
 	componentDidMount() {
@@ -51,8 +51,8 @@ class TrendingCourse extends Component {
 					<div className="trendingCourseCard">
 						<div className="trendingCourseCardInside row">
 							<div className="upperheading">
-								<div className="trendingheading">Related</div>
-								<div className="trendingsubheading">Courses</div>
+								<div className="trendingheading">RELATED</div>
+								<div className="trendingsubheading">COURSES</div>
 								<hr className="trending_line" />
 							</div>
 						</div>

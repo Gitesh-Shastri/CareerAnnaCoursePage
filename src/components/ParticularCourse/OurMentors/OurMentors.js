@@ -11,7 +11,11 @@ export default class OurMentors extends Component {
 	};
 
 	componentDidMount() {
-		Axios.get('https://careeranna.com/websiteapi/getMentors')
+		let product_id = this.props.product_id;
+		let formData = new FormData();
+		formData.append('product_id', product_id);
+
+		Axios.post('https://careeranna.com/websiteapi/getMentors', formData)
 			.then((response) => {
 				this.setState({ mentors: response.data });
 			})
@@ -29,7 +33,7 @@ export default class OurMentors extends Component {
 					<div className="col-md-12 title">Mentors</div>
 					<div className="col-md-12 mentors_list row">
 						{mentors.map((mentor, i) => (
-							<div className="col-md-6 col-12 pr-1">
+							<div className="col-md-6 col-12 profile_small pr-1">
 								<ProfileCard profile={mentor} />
 							</div>
 						))}

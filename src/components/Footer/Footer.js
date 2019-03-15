@@ -65,10 +65,10 @@ class Footer extends Component {
 				<div className="row">
 					<div className="col-12 col-md-5 px-0">
 						<div className="row">
-							<div className="col-md-12 px-0 footer_left_heading">careeranna</div>
+							<div className="col-md-12 px-0 footer_left_heading">CareerAnna</div>
 
 							<div className="footer_copyright col-12 col-md-12 padding-none">
-								<p>© CAREERANNA Pvt. Ltd. 2019</p>
+								<p>© CareerAnna Education Pvt. Ltd. 2019</p>
 							</div>
 							<div className="col-md-12 padding-none social_icons">
 								<ul className="list-inline">
@@ -265,7 +265,7 @@ class Footer extends Component {
 							<ul>
 								<li>
 									<a id="ga-14df32" href="https://www.careeranna.com/courses">
-										Test Prep
+										Courses
 									</a>
 								</li>
 								<li>
@@ -280,7 +280,7 @@ class Footer extends Component {
 							<ul>
 								<li>
 									<a id="ga-14df32" href="https://www.careeranna.com/careers">
-										Jobs
+										Careers
 									</a>
 								</li>
 								<li>

@@ -10,8 +10,9 @@ export default class CourseOverView extends Component {
 	};
 
 	componentDidMount() {
+		let product_id = this.props.product_id;
 		const formData = new FormData();
-		formData.append('product_id', '216');
+		formData.append('product_id', product_id);
 
 		axios
 			.post('https://www.careeranna.com/websiteapi/getCourseOverView', formData)

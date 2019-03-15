@@ -128,16 +128,7 @@ class PastScore extends Component {
 			<div className="past_score" id="pastScore">
 				<div className="pastScore_heading">
 					Past Results{' - '}
-					<span
-						style={{
-							float: 'right',
-							fontSize: '1.8rem',
-							lineHeight: '4rem'
-						}}
-					>
-						Top 50 Scores by our CAT 2018 Students ( Online CAT Coaching is the Full CAT Preparation Course
-						)
-					</span>
+					Top 50 Scores by our CAT 2018 Students (Online CAT Coaching is the Complete MBA Prep With GDPI)
 				</div>
 				{isLoading ? (
 					<div id="preloader">

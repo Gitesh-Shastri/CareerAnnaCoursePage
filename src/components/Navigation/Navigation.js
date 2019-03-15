@@ -122,7 +122,7 @@ class Navigation extends Component {
 								<li class="nav-item">
 									<a
 										title="Get Started"
-										class="btn btn-info primary_btn"
+										class="btn btn-info primary_btn signup"
 										href="https://www.careeranna.com/profile/enrolled_courses"
 									>
 										My Account

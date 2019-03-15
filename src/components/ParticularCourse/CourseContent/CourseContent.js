@@ -9,15 +9,12 @@ export default class CourseContent extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			course_name: (
-				<div className="course_name">
-					CAT 2019 <span>COACHING</span>
-				</div>
-			),
+			course_name: '',
 			price: '',
 			discounted: '',
 			isLogin: false,
 			showLoginModal: false,
+			course_list: '',
 			request: {
 				name: {
 					value: '',
@@ -31,9 +28,12 @@ export default class CourseContent extends Component {
 					value: '',
 					isValid: true
 				},
-				product_id: '216'
+				product_id: this.props.product_id
 			},
-			error_message: ''
+			error_message: '',
+			submittedCall: false,
+			isLoading: true,
+			header_image: ''
 		};
 	}
 
@@ -51,8 +51,16 @@ export default class CourseContent extends Component {
 		const formData = new FormData();
 		formData.append('product_id', this.state.request.product_id);
 
-		axios.post('https://www.careeranna.com/websiteapi/getCourseDetails', formData).then((response) => {
-			this.setState({ price: response.data.price, discounted: response.data.discount });
+		axios.post('https://www.careeranna.com/websiteapi/getCourseIntroContent', formData).then((response) => {
+			console.log(response.data);
+			this.setState({
+				course_name: response.data.course_name,
+				price: response.data.price,
+				discounted: response.data.discount,
+				course_list: response.data.course_list,
+				isLoading: false,
+				header_image: response.data.header_image
+			});
 		});
 		axios.get('https://www.careeranna.com/websiteapi/isLoggedIn').then((response) => {
 			if (response.data === 'notLoggedin') {
@@ -109,23 +117,19 @@ export default class CourseContent extends Component {
 
 	changeNameSubmit = (event) => {
 		let request = this.state.request;
-		let error_message = '';
 		request.name.value = this.capitalize(event.target.value);
 		let value = event.target.value;
 		value = value.split(' ').join('');
 		if (value.match('[0-9\\W_]+') == null) {
 			request.name.isValid = true;
-			error_message = '';
 		} else {
 			request.name.isValid = false;
-			error_message = 'Enter Valid Name';
 		}
-		this.setState({ submit: false, request: request, error_message: error_message });
+		this.setState({ submit: false, request: request });
 	};
 
 	changeEmailSubmit = (event) => {
 		let request = this.state.request;
-		let error_message = '';
 		request.email.value = event.target.value;
 		let pattern =
 			"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
@@ -136,38 +140,28 @@ export default class CourseContent extends Component {
 		) {
 			if (!(request.email.value.match(pattern) == null)) {
 				request.email.isValid = true;
-				error_message = '';
 			} else {
 				request.email.isValid = false;
-				error_message = 'Enter Valid Email';
 			}
 		} else {
 			request.email.isValid = true;
-			error_message = '';
 		}
-		this.setState({ submit: false, request: request, error_message: error_message });
+		this.setState({ submit: false, request: request });
 	};
 
 	changePhoneSubmit = (event) => {
 		let request = this.state.request;
-		let error_message = '';
 		request.mobile.value = event.target.value;
-		if (event.target.value.length > 9) {
+		if (event.target.value.length > 0) {
 			if (event.target.value.match('[A-Za-z\\W_]+') != null) {
 				request.mobile.isValid = false;
-				error_message = 'Enter Valid Mobile Number';
-				if ((request.email.isValid = false)) {
-					error_message = 'Enter Valid Mobile Number, Enter Valid Email';
-				}
 			} else {
 				request.mobile.isValid = true;
-				error_message = '';
 			}
 		} else {
 			request.mobile.isValid = true;
-			error_message = '';
 		}
-		this.setState({ submit: false, request: request, error_message: error_message });
+		this.setState({ submit: false, request: request });
 	};
 
 	submitRequest = (event) => {
@@ -183,11 +177,17 @@ export default class CourseContent extends Component {
 			axios
 				.post('https://www.careeranna.com/websiteapi/requestCall', formData)
 				.then((response) => {
-					alert('Call Submitted !');
+					this.setState({
+						submittedCall: true
+					});
+					setTimeout(() => {
+						this.setState({
+							submittedCall: false
+						});
+					}, 3000);
 				})
 				.catch((err) => {
 					console.log(err);
-					alert('Some Error Occured !');
 				});
 		}
 	};
@@ -212,39 +212,70 @@ export default class CourseContent extends Component {
 
 		const isLoggedIn = this.state.isLogin;
 		const showLoginModal = this.state.showLoginModal;
+		const header_image = this.state.header_image;
 
 		const date = new Date();
 		date.setDate(date.getDate() + 1);
 		const updateddate = this.formatDate(date);
 
-		const error_message = this.state.error_message;
+		let error_message;
+
+		if (!request.name.isValid) {
+			if (!request.mobile.isValid) {
+				if (!request.email.isValid) {
+					error_message = 'Enter Valid Name, Contact Number, Email ID';
+				} else {
+					error_message = 'Enter Valid Name, Contact Number';
+				}
+			} else {
+				error_message = 'Enter Valid Name';
+				if (!request.email.isValid) {
+					error_message = 'Enter Valid Name, Email ID';
+				}
+			}
+		} else {
+			if (!request.mobile.isValid) {
+				if (!request.email.isValid) {
+					error_message = 'Enter Valid Contact Number, Email ID';
+				} else {
+					error_message = 'Enter Valid Contact Number';
+				}
+			} else {
+				if (!request.email.isValid) {
+					error_message = 'Enter Valid Email ID';
+				}
+			}
+		}
+
+		const submittedCall = this.state.submittedCall;
+		const course_list = this.state.course_list;
+		const isLoading = this.state.isLoading;
 
 		return (
 			<div className="upper_main">
-				<LoginModel show={showLoginModal} modalClosed={() => this.hideModal()} />
-				<div className="CourseContent">
+				<LoginModel
+					show={showLoginModal}
+					modalClosed={() => this.hideModal()}
+					product_id={request.product_id}
+				/>
+				<div
+					className="CourseContent"
+					style={{
+						backgroundImage: `linear-gradient(180deg, #20242fcf 0%, rgba(255, 255, 255, 0.15) 488.9%), url(${header_image})`
+					}}
+				>
 					<div class="container px-0">
 						<div className="row px-0">
 							<div className="content">
-								{course_name}
-								<ul className="course_intro_list">
-									<li>
-										<b>300+ Hours</b> of Videos covering entire <b>CAT</b> Online Coaching{' '}
-										<b>2019 syllabus.</b>
-									</li>
-									<li>
-										126 Students with <b>99+ Percentile in CAT 2018.</b>
-									</li>
-									<li>
-										<b>CAT Mock Test Series</b> of 15 All India Mocks.
-									</li>
-									<li className="end">
-										Concepts covered from{' '}
-										<b>
-											Basics to Advanced <br />to Past Year Questions.
-										</b>
-									</li>
-								</ul>
+								{isLoading ? (
+									<div id="preloader" style={{ left: '10%', top: '30%' }}>
+										<div id="loader" />
+									</div>
+								) : null}
+
+								<div className="course_name" dangerouslySetInnerHTML={{ __html: course_name }} />
+
+								<ul className="course_intro_list" dangerouslySetInnerHTML={{ __html: course_list }} />
 								<div className="course_price_and_offer">
 									<span className="intro_max_price">
 										<del>{`For ₹${price}/`}</del>
@@ -298,8 +329,16 @@ export default class CourseContent extends Component {
 									<span>Request a Call Back</span>
 								</div>
 								{!(request.name.isValid && request.mobile.isValid && request.email.isValid) ? (
-									<div class="alert alert-danger">
+									<div class="alert alert-danger" style={{ textAlign: 'center', fontSize: '1.3rem' }}>
 										<strong>{error_message}</strong>
+									</div>
+								) : null}
+								{submittedCall ? (
+									<div
+										class="alert alert-success"
+										style={{ textAlign: 'center', fontSize: '1.4rem' }}
+									>
+										<strong>Call Submitted</strong>
 									</div>
 								) : null}
 								<form class="request_form" onSubmit={this.submitRequest}>

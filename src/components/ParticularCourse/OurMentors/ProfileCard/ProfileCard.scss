@@ -7,18 +7,33 @@
 	border-radius: 5px;
 	min-height: 20rem;
 	background: #fff;
+	@media only screen and (max-width: 650px) {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
 	.name_pic {
 		width: 7rem;
 		height: 7rem;
+		@media only screen and (max-width: 650px) {
+			width: 7.5rem;
+			height: 7.5rem;
+		}
 		img {
 			width: 7rem;
 			height: 7rem;
 			border-radius: 50%;
+			@media only screen and (max-width: 650px) {
+				width: 7.5rem;
+				height: 7.5rem;
+			}
 		}
 	}
 	.mentor_detail {
-		width: calc(100% - 12rem);
+		width: calc(100% - 7rem);
 		padding-left: 2rem;
+		@media only screen and (max-width: 650px) {
+			width: calc(100% - 7.5rem);
+		}
 		.user_name {
 			position: relative;
 			top: 0.5rem;
@@ -27,13 +42,19 @@
 			font-weight: 600;
 			backface-visibility: hidden;
 			letter-spacing: 0.05rem;
+			@media only screen and (max-width: 650px) {
+				top: 0rem;
+			}
 		}
 		.details {
 			padding-top: 0.5rem;
 			font-size: 1.5rem;
 			font-weight: 500;
-			width: 110%;
+			width: 100%;
 			backface-visibility: hidden;
+			@media only screen and (max-width: 650px) {
+				font-size: 1.1rem;
+			}
 		}
 	}
 	.user_comment {

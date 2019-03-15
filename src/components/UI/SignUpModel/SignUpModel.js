@@ -36,7 +36,10 @@ export default class SignUpModel extends Component {
 			signuphowtoknow: 'Direct'
 		},
 		captcha_value: '',
-		verified_captcha: false
+		verified_captcha: false,
+		showSignUpSmall: false,
+		showLoginSmall: true,
+		product_id: this.props.product_id
 	};
 
 	showSignUp = () => {
@@ -63,7 +66,7 @@ export default class SignUpModel extends Component {
 		axios
 			.post('https://www.careeranna.com/websiteapi/faceBookLogin', formData)
 			.then((response) => {
-				window.location.href = 'https://www.careeranna.com/cart/add/216';
+				window.location.href = 'https://www.careeranna.com/cart/add/' + this.props.product_id;
 				this.setState({ isLoading: false });
 			})
 			.catch((err) => {
@@ -90,7 +93,7 @@ export default class SignUpModel extends Component {
 					this.setState({ invalidUserDetails: true, isLoading: false });
 				} else {
 					this.setState({ invalidUserDetails: false, isLoading: false });
-					window.location.href = 'https://www.careeranna.com/cart/add/216';
+					window.location.href = 'https://www.careeranna.com/cart/add/' + this.props.product_id;
 				}
 			})
 			.catch((err) => {
@@ -253,7 +256,7 @@ export default class SignUpModel extends Component {
 							});
 						} else {
 							this.setState({ UserDetailsAlreadyExists: false, isLoading: false });
-							window.location.href = 'https://www.careeranna.com/cart/add/216';
+							window.location.href = 'https://www.careeranna.com/cart/add/' + this.props.product_id;
 						}
 					})
 					.catch((err) => {
@@ -291,7 +294,7 @@ export default class SignUpModel extends Component {
 			.post('https://www.careeranna.com/websiteapi/googleLogin', formData)
 			.then((response) => {
 				this.setState({ isLoading: false });
-				window.location.href = 'https://www.careeranna.com/cart/add/216';
+				window.location.href = 'https://www.careeranna.com/cart/add/' + this.props.product_id;
 			})
 			.catch((err) => {
 				this.setState({ invalidUserDetails: true, isLoading: false });
@@ -379,6 +382,14 @@ export default class SignUpModel extends Component {
 			});
 	};
 
+	showSignUpSm = (event) => {
+		this.setState({ showSignUpSmall: true, showLoginSmall: false });
+	};
+
+	showLoginSm = (event) => {
+		this.setState({ showSignUpSmall: false, showLoginSmall: true });
+	};
+
 	render() {
 		const invalidUserDetails = this.state.invalidUserDetails;
 		const UserDetailsAlreadyExists = this.state.UserDetailsAlreadyExists;
@@ -390,6 +401,8 @@ export default class SignUpModel extends Component {
 		const emailnotExists = this.state.emailnotExists;
 		const tokenSent = this.state.tokenSent;
 		const newPassword = this.state.newPassword;
+		const showSignUpSmall = this.state.showSignUpSmall;
+		const showLoginSmall = this.state.showLoginSmall;
 
 		let css_class_login = { background: '#FFF', borderRadius: '10px' };
 		if (isSignUpTouched) {
@@ -402,6 +415,16 @@ export default class SignUpModel extends Component {
 			css_class_signup = { background: 'rgba(242, 242, 242, 0.74)', opacity: '0.5', borderRadius: '10px' };
 		} else if (isSignUpTouched) {
 			css_class_signup = { background: '#FFF', borderRadius: '10px' };
+		}
+
+		if (window.innerWidth < 650) {
+			if (showLoginSmall) {
+				css_class_login = { background: '#FFF', borderRadius: '10px' };
+				css_class_signup = { display: 'none' };
+			} else {
+				css_class_login = { display: 'none' };
+				css_class_signup = { background: '#FFF', borderRadius: '10px' };
+			}
 		}
 
 		return (
@@ -428,7 +451,49 @@ export default class SignUpModel extends Component {
 					{!isForgotPassword ? (
 						<div className="login_and_sign_up">
 							<div className="row px-0">
-								<div className="col-md-6 col-6 px-0" style={css_class_login} onClick={this.changeLogin}>
+								<div className="small_mobile_headings col-12 row px-0">
+									<div
+										className="login_small"
+										onClick={this.showLoginSm}
+										style={
+											showLoginSmall ? (
+												{
+													opacity: '1',
+													borderBottom: '1px solid #1989cd'
+												}
+											) : (
+												{
+													opacity: '0.4'
+												}
+											)
+										}
+									>
+										Log In
+									</div>
+									<div
+										className="signup_small"
+										onClick={this.showSignUpSm}
+										style={
+											showSignUpSmall ? (
+												{
+													opacity: '1',
+													borderBottom: '1px solid #1989cd'
+												}
+											) : (
+												{
+													opacity: '0.4'
+												}
+											)
+										}
+									>
+										Sign Up
+									</div>
+								</div>
+								<div
+									className="col-md-6 col-12 px-0"
+									style={css_class_login}
+									onClick={this.changeLogin}
+								>
 									<form className="login_from" onSubmit={this.SignInUser}>
 										<div className="heading">Log In</div>
 										<hr className="line_heading" />
@@ -529,7 +594,7 @@ export default class SignUpModel extends Component {
 									</form>
 								</div>
 								<div
-									className="col-md-6 col-6 px-0"
+									className="col-md-6 col-12 px-0"
 									style={css_class_signup}
 									onClick={this.changeSignUp}
 								>

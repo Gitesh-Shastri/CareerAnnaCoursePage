@@ -25,7 +25,7 @@ class Review_Section extends Component {
 			pageno: 0,
 			showVideo: true,
 			isLoading: true,
-			product_id: '216'
+			product_id: this.props.product_id
 		};
 	}
 
@@ -33,46 +33,63 @@ class Review_Section extends Component {
 		let product_id = this.state.product_id;
 		axios.get('https://www.careeranna.com/webiste-api/fetchCourseReview.php?id=' + product_id).then((response) => {
 			let reviews_temp = [];
-			for (let i = 0; i < response.data.length; ) {
-				let review_array_temp = [];
-				if (response.data[i] === undefined) {
-					review_array_temp.push(this.state.review);
-					review_array_temp.push(this.state.review);
-					review_array_temp.push(this.state.review);
-					review_array_temp.push(this.state.review);
-				} else if (response.data[i + 1] === undefined) {
-					review_array_temp.push(response.data[i]);
-					review_array_temp.push(this.state.review);
-					review_array_temp.push(this.state.review);
-					review_array_temp.push(this.state.review);
-				} else if (response.data[i + 2] === undefined) {
-					review_array_temp.push(response.data[i]);
-					review_array_temp.push(response.data[i + 1]);
-					review_array_temp.push(this.state.review);
-					review_array_temp.push(this.state.review);
-				} else if (response.data[i + 3] === undefined) {
-					review_array_temp.push(response.data[i]);
-					review_array_temp.push(response.data[i + 1]);
-					review_array_temp.push(response.data[i + 2]);
-					review_array_temp.push(this.state.review);
-				} else {
-					review_array_temp.push(response.data[i]);
-					review_array_temp.push(response.data[i + 1]);
-					review_array_temp.push(response.data[i + 2]);
-					review_array_temp.push(response.data[i + 3]);
+			if (window.innerWidth < 650) {
+				for (let i = 0; i < response.data.length; ) {
+					let review_array_temp = [];
+					if (response.data[i] === undefined) {
+						review_array_temp.push(this.state.review);
+						review_array_temp.push(this.state.review);
+					} else if (response.data[i + 1] === undefined) {
+						review_array_temp.push(response.data[i]);
+						review_array_temp.push(this.state.review);
+					} else {
+						review_array_temp.push(response.data[i]);
+						review_array_temp.push(response.data[i + 1]);
+					}
+					reviews_temp.push(review_array_temp);
+					i += 2;
 				}
-				reviews_temp.push(review_array_temp);
-				i += 4;
+			} else {
+				for (let i = 0; i < response.data.length; ) {
+					let review_array_temp = [];
+					if (response.data[i] === undefined) {
+						review_array_temp.push(this.state.review);
+						review_array_temp.push(this.state.review);
+						review_array_temp.push(this.state.review);
+						review_array_temp.push(this.state.review);
+					} else if (response.data[i + 1] === undefined) {
+						review_array_temp.push(response.data[i]);
+						review_array_temp.push(this.state.review);
+						review_array_temp.push(this.state.review);
+						review_array_temp.push(this.state.review);
+					} else if (response.data[i + 2] === undefined) {
+						review_array_temp.push(response.data[i]);
+						review_array_temp.push(response.data[i + 1]);
+						review_array_temp.push(this.state.review);
+						review_array_temp.push(this.state.review);
+					} else if (response.data[i + 3] === undefined) {
+						review_array_temp.push(response.data[i]);
+						review_array_temp.push(response.data[i + 1]);
+						review_array_temp.push(response.data[i + 2]);
+						review_array_temp.push(this.state.review);
+					} else {
+						review_array_temp.push(response.data[i]);
+						review_array_temp.push(response.data[i + 1]);
+						review_array_temp.push(response.data[i + 2]);
+						review_array_temp.push(response.data[i + 3]);
+					}
+					reviews_temp.push(review_array_temp);
+					i += 4;
+				}
 			}
 			this.setState({ reviews: reviews_temp, isLoading: false });
-			if (window.innerWidth > 650) {
-				this.intervalId = setInterval(this.timer.bind(this), 4000);
-			}
+			this.intervalId = setInterval(this.timer.bind(this), 4000);
 		});
 	};
+
 	timer() {
 		const newpageno = this.state.pageno + 1;
-		if (newpageno === this.state.reviews.length - 2) {
+		if (newpageno == this.state.reviews.length - 2) {
 			this.setState({
 				pageno: 0
 			});
@@ -88,11 +105,14 @@ class Review_Section extends Component {
 	}
 
 	nextReview = () => {
-		const pageno = this.state.pageno;
-		const length = this.state.reviews.length - 2;
-		if (pageno < length) {
+		const newpageno = this.state.pageno + 1;
+		if (newpageno == this.state.reviews.length - 2) {
 			this.setState({
-				pageno: pageno + 1
+				pageno: 0
+			});
+		} else {
+			this.setState({
+				pageno: newpageno
 			});
 		}
 	};
@@ -134,30 +154,55 @@ class Review_Section extends Component {
 									transform: `translateX(-${pageno / reviews.length * 100}%)`
 								}}
 							>
-								{reviews.map((particular_review, i) => (
-									<div className="review_big_card" key={i}>
-										<div className="review_small_card" key={i}>
-											<Card key={i * 4} review={particular_review[0]} current_page={pageno * 4} />
-											<Card
-												key={(i + 1) * 4}
-												review={particular_review[1]}
-												current_page={pageno * 4}
-											/>
+								{window.innerWidth > 650 ? (
+									reviews.map((particular_review, i) => (
+										<div className="review_big_card" key={i}>
+											<div className="review_small_card" key={i}>
+												<Card
+													key={i * 4}
+													review={particular_review[0]}
+													current_page={pageno * 4}
+												/>
+												<Card
+													key={(i + 1) * 4}
+													review={particular_review[1]}
+													current_page={pageno * 4}
+												/>
+											</div>
+											<div className="review_small_card">
+												<Card
+													key={(i + 2) * 4}
+													review={particular_review[2]}
+													current_page={pageno * 4}
+												/>
+												<Card
+													key={(i + 3) * 4}
+													review={particular_review[3]}
+													current_page={pageno * 4}
+												/>
+											</div>
 										</div>
-										<div className="review_small_card">
-											<Card
-												key={(i + 2) * 4}
-												review={particular_review[2]}
-												current_page={pageno * 4}
-											/>
-											<Card
-												key={(i + 3) * 4}
-												review={particular_review[3]}
-												current_page={pageno * 4}
-											/>
+									))
+								) : (
+									reviews.map((particular_review, i) => (
+										<div className="review_big_card" key={i}>
+											<div className="review_small_card" key={i}>
+												<Card
+													key={i * 4}
+													review={particular_review[0]}
+													current_page={pageno * 4}
+												/>
+											</div>
+											<div className="review_small_card">
+												<Card
+													key={(i + 1) * 4}
+													review={particular_review[1]}
+													current_page={pageno * 4}
+												/>
+											</div>
 										</div>
-									</div>
-								))}
+									))
+								)}
 							</div>
 						</div>
 					</div>

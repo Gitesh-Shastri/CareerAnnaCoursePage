@@ -73,7 +73,7 @@
 		"workbox-webpack-plugin": "3.6.3",
 		"wowjs": "^1.1.3"
 	},
-	"homepage": "https://www.careeranna.com/iimcat",
+	"homepage": "https://www.careeranna.com/CAT-2019-Coaching/",
 	"scripts": {
 		"start": "node scripts/start.js",
 		"build": "node scripts/build.js",
@@ -82,21 +82,11 @@
 	"eslintConfig": {
 		"extends": "react-app"
 	},
-	"browserslist": [
-		">0.2%",
-		"not dead",
-		"not ie <= 11",
-		"not op_mini all"
-	],
+	"browserslist": [ ">0.2%", "not dead", "not ie <= 11", "not op_mini all" ],
 	"jest": {
-		"collectCoverageFrom": [
-			"src/**/*.{js,jsx,ts,tsx}",
-			"!src/**/*.d.ts"
-		],
+		"collectCoverageFrom": [ "src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts" ],
 		"resolver": "jest-pnp-resolver",
-		"setupFiles": [
-			"react-app-polyfill/jsdom"
-		],
+		"setupFiles": [ "react-app-polyfill/jsdom" ],
 		"testMatch": [
 			"<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
 			"<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
@@ -116,26 +106,13 @@
 			"^react-native$": "react-native-web",
 			"^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
 		},
-		"moduleFileExtensions": [
-			"web.js",
-			"js",
-			"web.ts",
-			"ts",
-			"web.tsx",
-			"tsx",
-			"json",
-			"web.jsx",
-			"jsx",
-			"node"
-		],
+		"moduleFileExtensions": [ "web.js", "js", "web.ts", "ts", "web.tsx", "tsx", "json", "web.jsx", "jsx", "node" ],
 		"watchPlugins": [
 			"/Users/apple/Documents/MainLandingPage/particular_course/node_modules/jest-watch-typeahead/filename.js",
 			"/Users/apple/Documents/MainLandingPage/particular_course/node_modules/jest-watch-typeahead/testname.js"
 		]
 	},
 	"babel": {
-		"presets": [
-			"react-app"
-		]
+		"presets": [ "react-app" ]
 	}
 }
