@@ -412,6 +412,12 @@ export default class CourseContent extends Component {
 									>
 										Submit
 									</button>
+									<div className="contact_us">
+										Alternatively, Contact us on Whatsapp at{' '}
+										<a href="https://api.whatsapp.com/send?phones=919741133224&text=Hi">
+											+91-9741133224
+										</a>
+									</div>
 								</form>
 							</div>
 						</div>
