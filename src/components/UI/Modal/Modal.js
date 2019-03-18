@@ -17,7 +17,7 @@ const modal = (props) => (
 			{props.children}
 			<div className="close_button" onClick={props.modalClosed}>
 				<button>
-					<i class="fas fa-times" style={{ color: '#ccc' }} />
+					<i className="fas fa-times" style={{ color: '#ccc' }} />
 				</button>
 			</div>
 		</div>

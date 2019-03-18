@@ -38,25 +38,10 @@ class Navigation extends Component {
 		let telugu_video = this.state.telugu_video;
 		let login = this.state.login;
 		let signup = this.state.signup;
-		if (this.props.lang === 'Hindi') {
-			mba = 'एमबीए';
-			hindi_videos = 'हिंदी वीडियो';
-			tamil_video = 'तमिल वीडियो';
-			telugu_video = 'तेलुगू वीडियो';
-			signup = 'साइन अप';
-			login = 'लॉग इन';
-		} else if (this.props.lang === 'Tamil') {
-			mba = 'எம்பிஏ';
-			hindi_videos = 'ஹிந்தி வீடியோக்கள்';
-			tamil_video = 'தமிழ் வீடியோக்கள்';
-			telugu_video = 'தெலுகு விடியோக்கள்';
-			signup = 'பதிவு செய்க';
-			login = 'உள் நுழை';
-		}
 
 		return (
 			<div className="Navigation">
-				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<nav className="navbar navbar-expand-lg navbar-light bg-light">
 					<button
 						className="navbar-toggler"
 						type="button"
@@ -76,40 +61,40 @@ class Navigation extends Component {
 							alt="brand_logo"
 						/>
 					</Link>
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item nav_link active">
+					<div className="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul className="navbar-nav ml-auto">
+							<li className="nav-item nav_link active">
 								<a title="Courses" href="https://www.careeranna.com/courses">
 									{mba}
 								</a>
 							</li>
-							<li class="nav-item nav_link">
+							<li className="nav-item nav_link">
 								<a title="Certifications" href="https://www.careeranna.com/hindi/free/videos">
 									{hindi_videos}
 								</a>
 							</li>
-							<li class="nav-item nav_link">
+							<li className="nav-item nav_link">
 								<a title="Free Videos" href="https://www.careeranna.com/tamil/free/videos">
 									{tamil_video}
 								</a>
 							</li>
-							<li class="nav-item nav_link">
+							<li className="nav-item nav_link">
 								<a title="Free Tests" href="https://www.careeranna.com/telugu/free/videos">
 									{telugu_video}
 								</a>
 							</li>
 							{!isLoggedIn ? (
-								<li class="nav-item">
+								<li className="nav-item">
 									<a
 										title="Log In"
-										class="btn btn-info primary_btn login"
+										className="btn btn-info primary_btn login"
 										href="https://www.careeranna.com/signup"
 									>
 										{login}
 									</a>
 									<a
 										title=" Sign Up"
-										class="btn btn-info primary_btn signup"
+										className="btn btn-info primary_btn signup"
 										href="https://www.careeranna.com/signup#signup"
 									>
 										{signup}
@@ -117,12 +102,12 @@ class Navigation extends Component {
 								</li>
 							) : null}
 							{!isLoggedIn ? (
-								<li class="nav-item" />
+								<li className="nav-item" />
 							) : (
-								<li class="nav-item">
+								<li className="nav-item">
 									<a
 										title="Get Started"
-										class="btn btn-info primary_btn signup"
+										className="btn btn-info primary_btn signup"
 										href="https://www.careeranna.com/profile/enrolled_courses"
 									>
 										My Account

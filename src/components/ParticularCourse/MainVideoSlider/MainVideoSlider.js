@@ -95,9 +95,6 @@ class MainVideoSlider extends Component {
 	render() {
 		const { videos_playlist, video_item } = this.state;
 		const showModal = this.state.showModal;
-
-		console.log(video_item);
-
 		return (
 			<div className="MainVideoSlider" id="video">
 				<Modal show={this.state.showModal} modalClosed={() => this.hideModal()}>
@@ -108,7 +105,7 @@ class MainVideoSlider extends Component {
 						height="366"
 						src={showModal ? video_item.url_link : ''}
 						frameBorder="0"
-						autoPlay="true"
+						autoPlay={true}
 						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 					/>

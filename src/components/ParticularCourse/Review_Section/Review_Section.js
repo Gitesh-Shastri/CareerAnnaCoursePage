@@ -89,7 +89,7 @@ class Review_Section extends Component {
 
 	timer() {
 		const newpageno = this.state.pageno + 1;
-		if (newpageno == this.state.reviews.length - 2) {
+		if (newpageno === this.state.reviews.length - 2) {
 			this.setState({
 				pageno: 0
 			});
@@ -106,7 +106,7 @@ class Review_Section extends Component {
 
 	nextReview = () => {
 		const newpageno = this.state.pageno + 1;
-		if (newpageno == this.state.reviews.length - 2) {
+		if (newpageno === this.state.reviews.length - 2) {
 			this.setState({
 				pageno: 0
 			});

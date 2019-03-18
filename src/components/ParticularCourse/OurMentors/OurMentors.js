@@ -33,7 +33,7 @@ export default class OurMentors extends Component {
 					<div className="col-md-12 title">Mentors</div>
 					<div className="col-md-12 mentors_list row">
 						{mentors.map((mentor, i) => (
-							<div className="col-md-6 col-12 profile_small pr-1">
+							<div className="col-md-6 col-12 profile_small pr-1" key={i}>
 								<ProfileCard profile={mentor} />
 							</div>
 						))}

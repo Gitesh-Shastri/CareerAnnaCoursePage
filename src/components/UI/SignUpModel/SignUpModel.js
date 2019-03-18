@@ -511,7 +511,7 @@ export default class SignUpModel extends Component {
 													this.state.email.length > 0 && isLoginTouched ? 'touched' : ''
 												}
 												name="email"
-												autocomplete="email"
+												autoComplete="email"
 												placeholder="Email Id"
 												required
 												onChange={this.setEamilValue}
@@ -523,7 +523,7 @@ export default class SignUpModel extends Component {
 											<input
 												id="login_password"
 												type="password"
-												autocomplete="off"
+												autoComplete="off"
 												className={
 													this.state.password.length > 0 && isLoginTouched ? 'touched' : ''
 												}
@@ -536,7 +536,7 @@ export default class SignUpModel extends Component {
 											<label>Password</label>
 											<div className="forget">
 												<a
-													href="javascript:void(0)"
+													href="#forget"
 													onClick={this.forgetPassword}
 													id="forgotPassword"
 													className="disclaimer blue forgot-link clean"
@@ -571,7 +571,7 @@ export default class SignUpModel extends Component {
 													onCompleted={this.handleResponse}
 													onError={this.handleError}
 												>
-													<i class="fab fa-facebook" /> Log In with Facebook
+													<i className="fab fa-facebook" /> Log In with Facebook
 												</LoginButton>
 											</FacebookProvider>
 											<GoogleLogin
@@ -582,7 +582,7 @@ export default class SignUpModel extends Component {
 														onClick={renderProps.onClick}
 													>
 														<div className="button-label">
-															<i class="fab fa-google-plus-g" /> Log In with Google
+															<i className="fab fa-google-plus-g" /> Log In with Google
 														</div>
 													</button>
 												)}
@@ -618,7 +618,7 @@ export default class SignUpModel extends Component {
 													)
 												}
 												name="name"
-												autocomplete="off"
+												autoComplete="off"
 												placeholder="Full Name"
 												required
 												onChange={this.setSignUpNameValue}
@@ -638,7 +638,7 @@ export default class SignUpModel extends Component {
 													)
 												}
 												name="email"
-												autocomplete="email"
+												autoComplete="email"
 												placeholder="Email"
 												required
 												onChange={this.setSignUpEamilValue}
@@ -658,7 +658,7 @@ export default class SignUpModel extends Component {
 													)
 												}
 												name="password"
-												autocomplete="off"
+												autoComplete="off"
 												placeholder="Password"
 												required
 												onChange={this.setSignUpPasswordValue}
@@ -678,10 +678,10 @@ export default class SignUpModel extends Component {
 													)
 												}
 												name="phone"
-												inputmode="phone"
+												inputMode="phone"
 												pattern="[0-9]{10}"
 												maxLength="10"
-												autocomplete="off"
+												autoComplete="off"
 												placeholder="Phone No."
 												required
 												onChange={this.setSignUpPhoneValue}
@@ -701,7 +701,7 @@ export default class SignUpModel extends Component {
 													)
 												}
 												name="city"
-												autocomplete="city"
+												autoComplete="city"
 												placeholder="City Name"
 												required
 												onChange={this.setSignUpCityValue}
@@ -709,7 +709,7 @@ export default class SignUpModel extends Component {
 											/>
 											<label>City Name</label>
 										</div>
-										<div class="terms-wrap">
+										<div className="terms-wrap">
 											<input
 												type="checkbox"
 												name="tos_accepted"
@@ -775,17 +775,17 @@ export default class SignUpModel extends Component {
 					) : (
 						<div className="forgetPass">
 							{emailnotExists ? (
-								<div class="alert alert-danger">
+								<div className="alert alert-danger">
 									<strong>Email Does Not Exists. Please Sign Up!</strong>
 								</div>
 							) : null}
 							{tokenSent && !newPassword ? (
-								<div class="alert alert-success">
+								<div className="alert alert-success">
 									<strong>Verification Code Has Been Sent To Email !</strong>
 								</div>
 							) : null}
 							{this.state.passwordChange ? (
-								<div class="alert alert-success password_changed">
+								<div className="alert alert-success password_changed">
 									<strong>Your password has been changed successfully !</strong>
 								</div>
 							) : null}
@@ -858,7 +858,7 @@ export default class SignUpModel extends Component {
 												className="btn btn-block btn-primary btn-login center-block mb-half"
 												onClick={this.forgetPasswordHide}
 											>
-												<i class="fas fa-angle-left" /> Go Back
+												<i className="fas fa-angle-left" /> Go Back
 											</button>
 										</div>
 										<div className="col-md-6 col-6 px-0">
@@ -879,7 +879,7 @@ export default class SignUpModel extends Component {
 
 					<div className="close_button" onClick={this.props.modalClosed}>
 						<button onClick={this.hideSignUp}>
-							<i class="fas fa-times" style={{ color: '#ccc' }} />
+							<i className="fas fa-times" style={{ color: '#ccc' }} />
 						</button>
 					</div>
 				</div>

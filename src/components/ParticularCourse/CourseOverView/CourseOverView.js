@@ -17,7 +17,6 @@ export default class CourseOverView extends Component {
 		axios
 			.post('https://www.careeranna.com/websiteapi/getCourseOverView', formData)
 			.then((response) => {
-				console.log(response);
 				this.setState({ cousrse_over_view: response.data, isLoading: false });
 			})
 			.catch((err) => {

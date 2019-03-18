@@ -52,7 +52,6 @@ export default class CourseContent extends Component {
 		formData.append('product_id', this.state.request.product_id);
 
 		axios.post('https://www.careeranna.com/websiteapi/getCourseIntroContent', formData).then((response) => {
-			console.log(response.data);
 			this.setState({
 				course_name: response.data.course_name,
 				price: response.data.price,
@@ -264,7 +263,7 @@ export default class CourseContent extends Component {
 						backgroundImage: `linear-gradient(180deg, #20242fcf 0%, rgba(255, 255, 255, 0.15) 488.9%), url(${header_image})`
 					}}
 				>
-					<div class="container px-0">
+					<div className="container px-0">
 						<div className="row px-0">
 							<div className="content">
 								{isLoading ? (
@@ -294,7 +293,7 @@ export default class CourseContent extends Component {
 											Enroll Now
 										</a>
 									) : (
-										<a href="javascript:void(0)" onClick={this.onSubmitCall} className="enroll_now">
+										<a href="#enroll_now" onClick={this.onSubmitCall} className="enroll_now">
 											Enroll Now
 										</a>
 									)}
@@ -303,7 +302,7 @@ export default class CourseContent extends Component {
 											Demo Videos{' '}
 											<i
 												style={{ position: 'relative', top: '1.5px' }}
-												class="fas fa-angle-down    "
+												className="fas fa-angle-down    "
 											/>{' '}
 										</div>
 									</Scrollchor>
@@ -313,7 +312,7 @@ export default class CourseContent extends Component {
 												Past Results{' '}
 												<i
 													style={{ position: 'relative', top: '1.5px' }}
-													class="fas fa-angle-down    "
+													className="fas fa-angle-down    "
 												/>
 											</div>
 										</Scrollchor>
@@ -329,20 +328,23 @@ export default class CourseContent extends Component {
 									<span>Request a Call Back</span>
 								</div>
 								{!(request.name.isValid && request.mobile.isValid && request.email.isValid) ? (
-									<div class="alert alert-danger" style={{ textAlign: 'center', fontSize: '1.3rem' }}>
+									<div
+										className="alert alert-danger"
+										style={{ textAlign: 'center', fontSize: '1.3rem' }}
+									>
 										<strong>{error_message}</strong>
 									</div>
 								) : null}
 								{submittedCall ? (
 									<div
-										class="alert alert-success"
+										className="alert alert-success"
 										style={{ textAlign: 'center', fontSize: '1.4rem' }}
 									>
 										<strong>Call Submitted</strong>
 									</div>
 								) : null}
-								<form class="request_form" onSubmit={this.submitRequest}>
-									<div class="input-group">
+								<form className="request_form" onSubmit={this.submitRequest}>
+									<div className="input-group">
 										<input
 											type="text"
 											name="name"
@@ -357,7 +359,7 @@ export default class CourseContent extends Component {
 										/>
 										<label>Full Name</label>
 									</div>
-									<div class="input-group">
+									<div className="input-group">
 										<input
 											type="text"
 											pattern="[7-9][0-9]{9}"
@@ -378,7 +380,7 @@ export default class CourseContent extends Component {
 										/>
 										<label>Contact Number</label>
 									</div>
-									<div class="input-group">
+									<div className="input-group">
 										<input
 											type="email"
 											pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -394,7 +396,7 @@ export default class CourseContent extends Component {
 										/>
 										<label>Enter your email</label>
 									</div>
-									<input type="text" name="product_id" value={request.product_id} hidden />
+									<input type="text" name="product_id" defaultValue={request.product_id} hidden />
 									<button
 										className={
 											!(
