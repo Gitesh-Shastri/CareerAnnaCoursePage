@@ -94,14 +94,23 @@
 						font-weight: 600;
 						padding: 1.4rem 3rem;
 						margin-right: 1.5rem;
+						@media screen and (max-width: '650px') {
+							margin-right: 0.9rem;
+							font-size: 1.5rem;
+						}
 					}
 					.demo_button {
 						background: transparent;
 						border: .125rem solid #fff;
 						border-radius: .3rem;
-						font-size: 1.7rem;
+						font-size: 1.8rem;
 						font-weight: 600;
 						padding: 1.05rem 2.1rem;
+						@media screen and (max-width: '650px') {
+							margin-right: 0.1rem;
+							font-size: 1.5rem;
+							padding: 1.2rem 2.1rem;
+						}
 					}
 				}
 			}

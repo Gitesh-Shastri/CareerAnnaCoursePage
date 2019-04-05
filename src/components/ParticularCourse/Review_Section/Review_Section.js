@@ -9,16 +9,15 @@ class Review_Section extends Component {
 		this.state = {
 			reviews: [],
 			review: {
-				reviewID: '1236',
-				productID: '216',
-				rating: '5',
-				fullname: 'Vindhya',
-				emailaddress: 'vindhyakaushal@gmail.com',
-				comments:
-					'Will surely recommend to friends. High quality material and mocks were strictly in line with the exam.',
-				date: '2018-02-02',
-				publish: '1',
-				user_id: '393704',
+				reviewID: '',
+				productID: '',
+				rating: '',
+				fullname: '',
+				emailaddress: '',
+				comments: '',
+				date: '',
+				publish: '',
+				user_id: '',
 				index: 0
 			},
 			disabled: true,
@@ -89,7 +88,7 @@ class Review_Section extends Component {
 
 	timer() {
 		const newpageno = this.state.pageno + 1;
-		if (newpageno === this.state.reviews.length - 2) {
+		if (newpageno === this.state.reviews.length) {
 			this.setState({
 				pageno: 0
 			});

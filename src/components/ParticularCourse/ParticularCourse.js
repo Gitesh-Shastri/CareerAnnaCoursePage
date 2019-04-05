@@ -14,7 +14,7 @@ import OurMentors from './OurMentors/OurMentors';
 
 class ParticularCourse extends Component {
 	state = {
-		product_id: '216'
+		product_id: '90'
 	};
 
 	render() {
@@ -24,11 +24,11 @@ class ParticularCourse extends Component {
 				<CourseRating product_id={this.state.product_id} />
 				<ReviewSection product_id={this.state.product_id} />
 				<CourseOverView product_id={this.state.product_id} />
-				<MainVideoSlider title="Demo" product_id={this.state.product_id} />
+				{/* <MainVideoSlider title="Demo" product_id={this.state.product_id} /> */}
 				<TrendingCourse product_id={this.state.product_id} />
-				<OurMentors product_id={this.state.product_id} />
-				<FAQ />
-				<PastScore />
+				{/* <OurMentors product_id={this.state.product_id} />
+				{/* <FAQ /> 
+				<PastScore /> */}
 			</div>
 		);
 	}

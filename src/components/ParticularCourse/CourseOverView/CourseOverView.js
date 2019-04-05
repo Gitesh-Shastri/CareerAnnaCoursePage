@@ -30,10 +30,10 @@ export default class CourseOverView extends Component {
 		const isLoading = this.state.isLoading;
 
 		return (
-			<div className="coursecontent">
+			<div className="coursecontent" id="course_content">
 				<div className="row px-0">
 					<h2 className="col-md-12 col-12 px-0 heading">
-						CAT 2019 Coaching <span style={{ fontWeight: '300' }}>Course Content</span>
+						Career Anna MICAT <span style={{ fontWeight: '300' }}>Course Content</span>
 					</h2>
 
 					{isLoading ? (

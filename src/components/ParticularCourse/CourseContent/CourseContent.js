@@ -272,7 +272,7 @@ export default class CourseContent extends Component {
 									</div>
 								) : null}
 
-								<div className="course_name" dangerouslySetInnerHTML={{ __html: course_name }} />
+								<h1 className="course_name" dangerouslySetInnerHTML={{ __html: course_name }} />
 
 								<ul className="course_intro_list" dangerouslySetInnerHTML={{ __html: course_list }} />
 								<div className="course_price_and_offer">
@@ -288,35 +288,28 @@ export default class CourseContent extends Component {
 									{isLoggedIn ? (
 										<a
 											href={'https://www.careeranna.com/Cart/add/' + request.product_id}
-											className="enroll_now"
+											className="enroll_now d-inline-block"
 										>
 											Enroll Now
 										</a>
 									) : (
-										<a href="#enroll_now" onClick={this.onSubmitCall} className="enroll_now">
+										<a
+											href="#enroll_now"
+											onClick={this.onSubmitCall}
+											className="enroll_now d-inline-block"
+										>
 											Enroll Now
 										</a>
 									)}
-									<Scrollchor to="#video" animate={{ offset: 0, duration: 300 }}>
+									<Scrollchor to="#course_content" animate={{ offset: 0, duration: 300 }}>
 										<div className="demo_button d-inline-block">
-											Demo Videos{' '}
+											Course Content{' '}
 											<i
 												style={{ position: 'relative', top: '1.5px' }}
 												className="fas fa-angle-down    "
 											/>{' '}
 										</div>
 									</Scrollchor>
-									{window.innerWidth > 650 ? (
-										<Scrollchor to="#pastScore" animate={{ offset: 0, duration: 300 }}>
-											<div className="past_score_link">
-												Past Results{' '}
-												<i
-													style={{ position: 'relative', top: '1.5px' }}
-													className="fas fa-angle-down    "
-												/>
-											</div>
-										</Scrollchor>
-									) : null}
 								</div>
 							</div>
 							<div className="request_call">

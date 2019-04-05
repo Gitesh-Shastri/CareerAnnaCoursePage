@@ -32,7 +32,7 @@ class CourseRating extends Component {
 				percent: '97'
 			}
 		],
-		average_ratings: 4.9,
+		average_ratings: '',
 		learners: 2893,
 		render: false
 	};

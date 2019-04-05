@@ -7,7 +7,7 @@ const Card = ({ review }) => {
 
 	return (
 		<div className={css_class} id={`card-${index}`}>
-			{comments.length > 0 ? (
+			{fullname.length > 0 ? (
 				<div className="row px-0">
 					<div id="name_pic">
 						<div id="name_initial">{fullname.charAt(0)}</div>
