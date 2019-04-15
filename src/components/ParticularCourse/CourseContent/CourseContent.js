@@ -33,7 +33,8 @@ export default class CourseContent extends Component {
 			error_message: '',
 			submittedCall: false,
 			isLoading: true,
-			header_image: ''
+			header_image: '',
+			transition: 0
 		};
 	}
 
@@ -50,6 +51,7 @@ export default class CourseContent extends Component {
 	componentDidMount() {
 		const formData = new FormData();
 		formData.append('product_id', this.state.request.product_id);
+		console.log(window.location);
 
 		axios.post('https://www.careeranna.com/websiteapi/getCourseIntroContent', formData).then((response) => {
 			this.setState({
@@ -68,6 +70,15 @@ export default class CourseContent extends Component {
 				this.setState({ isLogin: true });
 			}
 		});
+		this.intervalId = setInterval(this.timer.bind(this), 3000);
+	}
+
+	timer() {
+		if (this.state.transition === 0) {
+			this.setState({ transition: 1 });
+		} else {
+			this.setState({ transition: 0 });
+		}
 	}
 
 	formatDate(date) {
@@ -273,18 +284,26 @@ export default class CourseContent extends Component {
 								) : null}
 
 								<h1 className="course_name" dangerouslySetInnerHTML={{ __html: course_name }} />
-
-								<ul className="course_intro_list" dangerouslySetInnerHTML={{ __html: course_list }} />
 								<div className="course_price_and_offer">
+									<span className="intro_offer_price">
+										<b>{`Now For ₹ ${discounted}/-`}</b> &nbsp;
+									</span>
 									<span className="intro_max_price">
 										<del>{`For ₹${price}/`}</del>
 									</span>
-									<span className="intro_offer_price">
-										<b>{`Now For ₹ ${discounted}/-`}</b>
-									</span>
-									<div className="intro_offer_expire">{'* Discount ends on ' + updateddate}</div>
+
+									<div className="intro_offer_price">
+										{'* ' +
+											Math.round(
+												(Number(this.state.price) - Number(this.state.discounted)) /
+													Number(this.state.price) *
+													100
+											) +
+											'% Off '}
+									</div>
+									<div className="intro_offer_expire">{'Offer ends on ' + updateddate}</div>
 								</div>
-								<div className="enroll_and_other_buttons">
+								<div className="enroll_and_other_buttons" style={{ marginBottom: '1rem' }}>
 									{isLoggedIn ? (
 										<a
 											href={'https://www.careeranna.com/Cart/add/' + request.product_id}
@@ -301,6 +320,10 @@ export default class CourseContent extends Component {
 											Enroll Now
 										</a>
 									)}
+								</div>
+								<ul className="course_intro_list" dangerouslySetInnerHTML={{ __html: course_list }} />
+
+								<div className="enroll_and_other_buttons">
 									<Scrollchor to="#course_content" animate={{ offset: 0, duration: 300 }}>
 										<div className="demo_button d-inline-block">
 											Course Content{' '}
@@ -312,106 +335,159 @@ export default class CourseContent extends Component {
 									</Scrollchor>
 								</div>
 							</div>
-							<div className="request_call">
-								<div className="heading">
-									<img
-										src="https://careeranna.com/home/static/media/cat/request_call.png"
-										alt="Request Call"
-									/>{' '}
-									<span>Request a Call Back</span>
+							<div className="right_wrapper">
+								<div className="upper_form row m-0">
+									<div className="slider_playlist col-md-9 px-0">
+										{this.state.transition === 0 ? (
+											<div className="price">
+												<span className="intro_offer_price">
+													<b>{`Now For ₹ ${discounted}/-`}</b>
+												</span>
+												<span className="intro_max_price">
+													<del>{`For ₹${price}/`}</del>
+												</span>
+												<span className="intro_offer_price">
+													{'* ' +
+														Math.round(
+															(Number(this.state.price) - Number(this.state.discounted)) /
+																Number(this.state.price) *
+																100
+														) +
+														'% Off '}
+												</span>
+											</div>
+										) : (
+											<div className="intro_offer_expire">{'* Offer ends on ' + updateddate}</div>
+										)}
+									</div>
+									<div className="col-md-3 enroll_tab px-0">
+										{isLoggedIn ? (
+											<a
+												href={'https://www.careeranna.com/Cart/add/' + request.product_id}
+												className="enroll_now d-inline-block"
+											>
+												Enroll Now
+											</a>
+										) : (
+											<a
+												href="#enroll_now"
+												onClick={this.onSubmitCall}
+												className="enroll_now d-inline-block"
+											>
+												Enroll Now
+											</a>
+										)}
+									</div>
 								</div>
-								{!(request.name.isValid && request.mobile.isValid && request.email.isValid) ? (
-									<div
-										className="alert alert-danger"
-										style={{ textAlign: 'center', fontSize: '1.3rem' }}
-									>
-										<strong>{error_message}</strong>
+								<div className="lower_form">
+									<div className="heading">
+										<img
+											src="https://careeranna.com/home/static/media/cat/request_call.png"
+											alt="Request Call"
+										/>{' '}
+										<span>Request a Call Back</span>
 									</div>
-								) : null}
-								{submittedCall ? (
-									<div
-										className="alert alert-success"
-										style={{ textAlign: 'center', fontSize: '1.4rem' }}
-									>
-										<strong>Call Submitted</strong>
-									</div>
-								) : null}
-								<form className="request_form" onSubmit={this.submitRequest}>
-									<div className="input-group">
-										<input
-											type="text"
-											name="name"
-											autoComplete="off"
+									{!(request.name.isValid && request.mobile.isValid && request.email.isValid) ? (
+										<div
+											className="alert alert-danger"
+											style={{ textAlign: 'center', fontSize: '1.3rem' }}
+										>
+											<strong>{error_message}</strong>
+										</div>
+									) : null}
+									{submittedCall ? (
+										<div
+											className="alert alert-success"
+											style={{ textAlign: 'center', fontSize: '1.4rem' }}
+										>
+											<strong>Call Submitted</strong>
+										</div>
+									) : null}
+									<form className="request_form row m-0" onSubmit={this.submitRequest}>
+										<div className="input-group col-md-4">
+											<input
+												type="text"
+												name="name"
+												autoComplete="off"
+												className={
+													request.name.value.length > 0 ? (
+														'form-control touched'
+													) : (
+														'form-control'
+													)
+												}
+												id="name"
+												placeholder="Full Name"
+												onChange={this.changeNameSubmit}
+												required
+											/>
+											<label>Full Name</label>
+										</div>
+										<div className="input-group col-md-4">
+											<input
+												type="text"
+												pattern="[7-9][0-9]{9}"
+												maxLength="10"
+												autoComplete="off"
+												name="mobile"
+												id="mobile"
+												placeholder="Contact Number"
+												className={
+													request.mobile.value.length > 0 ? (
+														'form-control touched'
+													) : (
+														'form-control'
+													)
+												}
+												onChange={this.changePhoneSubmit}
+												required
+											/>
+											<label>Contact Number</label>
+										</div>
+										<div className="input-group col-md-4">
+											<input
+												type="email"
+												pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+												autoComplete="off"
+												name="email"
+												className={
+													request.email.value.length > 0 ? (
+														'form-control touched'
+													) : (
+														'form-control'
+													)
+												}
+												id="email"
+												placeholder="Enter email"
+												onChange={this.changeEmailSubmit}
+												required
+											/>
+											<label>Enter your email</label>
+										</div>
+										<input type="text" name="product_id" defaultValue={request.product_id} hidden />
+										<button
 											className={
-												request.name.value.length > 0 ? 'form-control touched' : 'form-control'
-											}
-											id="name"
-											placeholder="Full Name"
-											onChange={this.changeNameSubmit}
-											required
-										/>
-										<label>Full Name</label>
-									</div>
-									<div className="input-group">
-										<input
-											type="text"
-											pattern="[7-9][0-9]{9}"
-											maxLength="10"
-											autoComplete="off"
-											name="mobile"
-											id="mobile"
-											placeholder="Contact Number"
-											className={
-												request.mobile.value.length > 0 ? (
-													'form-control touched'
+												!(
+													request.name.isValid &&
+													request.mobile.isValid &&
+													request.email.isValid
+												) ? (
+													'submit_request disabled'
 												) : (
-													'form-control'
+													'submit_request'
 												)
 											}
-											onChange={this.changePhoneSubmit}
-											required
-										/>
-										<label>Contact Number</label>
-									</div>
-									<div className="input-group">
-										<input
-											type="email"
-											pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-											autoComplete="off"
-											name="email"
-											className={
-												request.email.value.length > 0 ? 'form-control touched' : 'form-control'
-											}
-											id="email"
-											placeholder="Enter your email"
-											onChange={this.changeEmailSubmit}
-											required
-										/>
-										<label>Enter your email</label>
-									</div>
-									<input type="text" name="product_id" defaultValue={request.product_id} hidden />
-									<button
-										className={
-											!(
-												request.name.isValid &&
-												request.mobile.isValid &&
-												request.email.isValid
-											) ? (
-												'submit_request disabled'
-											) : (
-												'submit_request'
-											)
-										}
-									>
-										Submit
-									</button>
-									<div className="contact_us">
-										Alternatively, Contact us on Whatsapp at{' '}
-										<a href="https://api.whatsapp.com/send?phones=919741133224&text=Hi">
-											+91-9741133224
-										</a>
-									</div>
-								</form>
+										>
+											Submit
+										</button>
+										<div className="contact_us">
+											Alternatively, Contact us on Whatsapp at{' '}
+											<a href="https://api.whatsapp.com/send?phones=919741133224&text=Hi">
+												+91-9741133224
+											</a>
+										</div>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -6,34 +6,14 @@ import axios from 'axios';
 class Footer extends Component {
 	state = {
 		email: '',
-		inValidEmail: false
+		inValidEmail: false,
+		subscribe: false
 	};
 
 	setEamilValue = (event) => {
 		let email = this.state.email;
 		email = event.target.value;
-		this.setState({ email: email });
-		let value = event.target.value;
-		let pattern =
-			"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-		if (value.length > 0 && value.indexOf('@') !== -1) {
-			if (value.match(pattern) == null) {
-				this.setState({
-					inValidEmail: true,
-					error_message: 'Enter A Valid Email'
-				});
-			} else {
-				this.setState({
-					inValidEmail: false,
-					error_message: ''
-				});
-			}
-		} else {
-			this.setState({
-				inValidEmail: false,
-				error_message: ''
-			});
-		}
+		this.setState({ email: email, inValidEmail: false, error_message: '' });
 	};
 
 	sendSuscribeRequest = (event) => {
@@ -46,12 +26,14 @@ class Footer extends Component {
 			axios
 				.post('https://www.careeranna.com/websiteapi/subscribeToNewsLetter', formData)
 				.then((response) => {
-					this.setState({ inValidEmail: false });
+					this.setState({ inValidEmail: false, subscribe: true });
 				})
 				.catch((err) => {
-					this.setState({ inValidEmail: true });
+					this.setState({ inValidEmail: true, error_message: 'Error Occured !' });
 					alert('Some Error Occured !');
 				});
+		} else {
+			this.setState({ inValidEmail: true, error_message: 'Please Enter Valid Email' })
 		}
 	};
 
@@ -122,6 +104,11 @@ class Footer extends Component {
 
 							<div className="col-md-12 subs_form row">
 								<h4 className="col-md-12 padding-none">Subscribe to our newsletter</h4>
+								{this.state.subscribe ? (
+									<div class="alert alert-success">
+										<strong>You Have Been Subscribed</strong>
+									</div>
+								) : null}
 								{inValidEmail ? (
 									<div class="alert alert-danger">
 										<strong>{error_message}</strong>
