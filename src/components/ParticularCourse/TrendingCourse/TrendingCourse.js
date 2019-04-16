@@ -16,7 +16,7 @@ class TrendingCourse extends Component {
 		const formData = new FormData();
 		formData.append('product_id', this.state.product_id);
 
-		axios.post('https://www.careeranna.com/websiteapi/getMicatRelatedCourse', formData).then((response) => {
+		axios.post('https://www.careeranna.com/websiteapi/getCatRelatedCourse', formData).then((response) => {
 			this.setState({ courses: response.data, course: response.data[0], isLoading: false });
 		});
 	}

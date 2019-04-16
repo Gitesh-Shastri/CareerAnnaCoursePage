@@ -293,24 +293,20 @@ export default class CourseContent extends Component {
 								) : null}
 
 								<h1 className="course_name" dangerouslySetInnerHTML={{ __html: course_name }} />
-								<div className="course_price_and_offer">
-									<span className="intro_offer_price">
-										<b>{`Now For ₹ ${discounted}/-`}</b> &nbsp;
-									</span>
-									<span className="intro_max_price">
-										<del>{`For ₹${price}/`}</del>
-									</span>
-
-									<div className="intro_offer_price">
-										{'* ' +
-											Math.round(
-												(Number(this.state.price) - Number(this.state.discounted)) /
-													Number(this.state.price) *
-													100
-											) +
-											'% Off '}
-									</div>
-									<div className="intro_offer_expire">{'Offer ends on ' + updateddate}</div>
+								<div className="slider_playlist col-md-9 px-0">
+									{this.state.transition === 0 ? (
+										<div className="price">
+											<span className="intro_offer_price">
+												<b>{`Now For ₹ ${discounted}* `}</b>
+											</span>
+											<span className="intro_max_price">
+												<del>{`For ₹${price}`}</del>
+											</span>
+											<span className="intro_max_price_1">{'' + offer_price + '% Off '}</span>
+										</div>
+									) : (
+										<div className="intro_offer_expire">{'* Offer ends on ' + updateddate}</div>
+									)}
 								</div>
 								<div className="enroll_and_other_buttons" style={{ marginBottom: '1rem' }}>
 									{isLoggedIn ? (
@@ -406,7 +402,7 @@ export default class CourseContent extends Component {
 											className="alert alert-success"
 											style={{ textAlign: 'center', fontSize: '1.4rem' }}
 										>
-											<strong>Call Submitted</strong>
+											<strong>Request Submitted</strong>
 										</div>
 									) : null}
 									<form className="request_form row m-0" onSubmit={this.submitRequest}>
