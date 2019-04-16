@@ -10,8 +10,8 @@ export default class CourseContent extends Component {
 		super(props);
 		this.state = {
 			course_name: '',
-			price: '',
-			discounted: '',
+			price: 0,
+			discounted: 0,
 			isLogin: false,
 			showLoginModal: false,
 			course_list: '',
@@ -222,6 +222,15 @@ export default class CourseContent extends Component {
 
 		const isLoggedIn = this.state.isLogin;
 		const showLoginModal = this.state.showLoginModal;
+
+		let offer_price = Math.round(
+			(Number(this.state.price) - Number(this.state.discounted)) / Number(this.state.price) * 100
+		);
+
+		if (isNaN(offer_price)) {
+			offer_price = 0;
+		}
+
 		const header_image = this.state.header_image;
 
 		const date = new Date();
@@ -325,8 +334,17 @@ export default class CourseContent extends Component {
 
 								<div className="enroll_and_other_buttons">
 									<Scrollchor to="#course_content" animate={{ offset: 0, duration: 300 }}>
-										<div className="demo_button d-inline-block">
+										<div className="demo_button d-inline-block mr-2">
 											Course Content{' '}
+											<i
+												style={{ position: 'relative', top: '1.5px' }}
+												className="fas fa-angle-down    "
+											/>{' '}
+										</div>
+									</Scrollchor>
+									<Scrollchor to="#related_courses" animate={{ offset: 0, duration: 300 }}>
+										<div className="demo_button d-inline-block">
+											Related Courses{' '}
 											<i
 												style={{ position: 'relative', top: '1.5px' }}
 												className="fas fa-angle-down    "
@@ -336,25 +354,17 @@ export default class CourseContent extends Component {
 								</div>
 							</div>
 							<div className="right_wrapper">
-								<div className="upper_form row m-0">
+								<div className="upper_form row">
 									<div className="slider_playlist col-md-9 px-0">
 										{this.state.transition === 0 ? (
 											<div className="price">
 												<span className="intro_offer_price">
-													<b>{`Now For ₹ ${discounted}/-`}</b>
+													<b>{`Now For ₹ ${discounted} * `}</b>
 												</span>
 												<span className="intro_max_price">
-													<del>{`For ₹${price}/`}</del>
+													<del>{`For ₹${price}`}</del>
 												</span>
-												<span className="intro_offer_price">
-													{'* ' +
-														Math.round(
-															(Number(this.state.price) - Number(this.state.discounted)) /
-																Number(this.state.price) *
-																100
-														) +
-														'% Off '}
-												</span>
+												<span className="intro_max_price_1">{'' + offer_price + '% Off '}</span>
 											</div>
 										) : (
 											<div className="intro_offer_expire">{'* Offer ends on ' + updateddate}</div>
@@ -381,10 +391,6 @@ export default class CourseContent extends Component {
 								</div>
 								<div className="lower_form">
 									<div className="heading">
-										<img
-											src="https://careeranna.com/home/static/media/cat/request_call.png"
-											alt="Request Call"
-										/>{' '}
 										<span>Request a Call Back</span>
 									</div>
 									{!(request.name.isValid && request.mobile.isValid && request.email.isValid) ? (

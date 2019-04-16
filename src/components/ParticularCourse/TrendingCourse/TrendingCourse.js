@@ -46,7 +46,7 @@ class TrendingCourse extends Component {
 		const isLoading = this.state.isLoading;
 
 		return (
-			<div className="TrendingCourse">
+			<div className="TrendingCourse" id="related_courses">
 				<div className="row">
 					<div className="trendingCourseCard">
 						<div className="trendingCourseCardInside row">

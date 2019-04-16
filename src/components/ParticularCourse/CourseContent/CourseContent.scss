@@ -131,31 +131,40 @@
 				.upper_form {
 					height: 5rem;
 					border-radius: .4rem;
+					margin-bottom: 2rem;
 					@media screen and (max-width: '650px') {
 						display: none;
 					}
 					.slider_playlist {
 						border-top-left-radius: .4rem;
+						border-bottom-left-radius: .4rem;
 						box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
 						background: white;
 						.price {
 							padding: 10px;
-							text-align: center;
+							padding-left: 20px;
 							.intro_offer_price {
 								color: #1989cc;
 								font-size: 2rem;
 							}
 							.intro_max_price {
 								opacity: 0.8;
-								color: #1989cc;
+								color: rgba(0, 0, 0, 0.5);
+								padding-right: .5rem;
+								font-size: 1.4rem;
+							}
+							.intro_max_price_1 {
+								opacity: 1;
+								font-weight: 700;
+								color: #008a00;
 								padding-right: 1rem;
 								font-size: 1.4rem;
 							}
 						}
 						.intro_offer_expire {
 							font-size: 2rem;
-							text-align: center;
 							padding: 10px;
+							padding-left: 20px;
 							color: #1989cc;
 							font-weight: bold;
 						}
@@ -164,6 +173,7 @@
 						.enroll_now {
 							background: #1989cc;
 							border-top-right-radius: .3rem;
+							border-bottom-right-radius: .4rem;
 							color: white;
 							font-size: 1.95rem;
 							text-align: center;
@@ -176,11 +186,10 @@
 				.lower_form {
 					background: white;
 					padding: 1rem;
-					border-bottom-left-radius: .4rem;
-					border-bottom-right-radius: .4rem;
+					border-radius: .4rem;
 					box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.15);
 					.heading {
-						margin: 2rem auto 3rem auto;
+						margin: 2rem auto 3rem 1.1rem;
 						text-align: center;
 						@media screen and (min-width: '651px') and (max-width: '1199px') {
 							color: #000;
@@ -205,10 +214,11 @@
 							background: transparent;
 							input {
 								font-size: 1.2rem;
-								border: none;
-								border-bottom: .1rem solid #ccc;
 								outline: none;
+								border: none;
+								border-bottom: 1px solid #1989cd;
 								height: 4rem;
+								border-radius: .5rem;
 								text-align: center !important;
 								box-shadow: none;
 								&:focus {
@@ -217,6 +227,7 @@
 								&:focus + label {
 									top: -8px;
 									opacity: 1;
+									left: 2.5rem;
 									color: #1989cd;
 									background: #fff;
 									z-index: 4;
@@ -228,7 +239,7 @@
 									padding-left: 5px;
 									padding-right: 5px;
 									top: 10px;
-									left: 5%;
+									left: 2.5rem;
 									opacity: 0.7;
 									transition: all 300ms ease-in;
 								}
@@ -252,16 +263,25 @@
 							padding-left: 2.5rem;
 							padding-right: 2.5rem;
 							margin: 0 auto;
+							box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 							padding-bottom: .8rem;
 							color: #000 !important;
-							border: .08rem solid #000;
 							background: transparent;
+							transition: transform .3s ease;
+							&:hover {
+								transform: translateY(-3px);
+								box-shadow: 0px 2px 4px rgba(0, 0, 0, .2);
+							}
+							&:active {
+								transform: translateY(-1px);
+								box-shadow: 0px 2px 2px rgba(0, 0, 0, .2);
+							}
 						}
 						.contact_us {
 							font-size: 1.4rem;
 							text-align: center;
-							padding-top: 2rem;
-							padding-bottom: 2rem;
+							padding-top: 3rem;
+							padding-bottom: 3rem;
 							width: 100%;
 							a {
 								color: #1989cc !important;
