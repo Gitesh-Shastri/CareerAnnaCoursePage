@@ -11,10 +11,11 @@ import TrendingCourse from './TrendingCourse/TrendingCourse';
 import CourseContent from './CourseContent/CourseContent';
 import PastScore from './PastScore/PastScore';
 import OurMentors from './OurMentors/OurMentors';
+import InformationGathering from './InformationGathering/InformationGathering';
 
 class ParticularCourse extends Component {
 	state = {
-		product_id: '148'
+		product_id: '216'
 	};
 
 	render() {
@@ -24,11 +25,12 @@ class ParticularCourse extends Component {
 				<CourseRating product_id={this.state.product_id} />
 				<ReviewSection product_id={this.state.product_id} />
 				<CourseOverView product_id={this.state.product_id} />
-				{/* <MainVideoSlider title="Demo" product_id={this.state.product_id} /> */}
+				<MainVideoSlider title="Demo" product_id={this.state.product_id} />
 				<TrendingCourse product_id={this.state.product_id} />
-				{/* <OurMentors product_id={this.state.product_id} />
-				{/* <FAQ /> 
-				<PastScore /> */}
+				<OurMentors product_id={this.state.product_id} />
+				<FAQ />
+				<PastScore />
+				<InformationGathering />
 			</div>
 		);
 	}

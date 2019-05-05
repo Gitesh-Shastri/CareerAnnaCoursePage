@@ -31,7 +31,7 @@ export default class CourseOverView extends Component {
 			<div className="coursecontent" id="course_content">
 				<div className="row px-0">
 					<h2 className="col-md-12 col-12 px-0 heading">
-						Online CAT Mock Test Series <span style={{ fontWeight: '300' }}>Course Content</span>
+						CAT 2019 Coaching <span style={{ fontWeight: '300' }}>Course Content</span>
 					</h2>
 
 					{isLoading ? (

@@ -1,0 +1,70 @@
+.InformationGathering {
+	font-size: 1.6rem;
+	h2 {
+		font-size: 2.2rem;
+		padding: 2.2rem;
+		padding-left: 70px;
+		border-radius: 10px;
+		background: #273544;
+		color: white;
+		margin: 0px 70px;
+		@media only screen and (max-width: 650px) {
+			margin: 0px 15px;
+			font-size: 2rem;
+			text-align: center;
+			padding-left: 15px;
+		}
+	}
+	.card {
+		min-height: 41rem;
+		margin: 2rem 0rem;
+		.card-header h5 {
+			font-size: 1.8rem;
+			background: #507c94;
+			min-height: 6rem;
+			padding: 1rem 0rem;
+		}
+		.card-header {
+			padding: 0rem;
+		}
+		.list-group {
+			min-height: 7rem;
+			.list-group-item {
+				text-decoration: underline;
+				a {
+					color: #507c94;
+				}
+			}
+		}
+		.card-body {
+			min-height: 30rem;
+		}
+		.card-header {
+			min-height: 6rem;
+		}
+	}
+	.table_scroll {
+		position: relative;
+		overflow-x: scroll;
+		margin-bottom: 2rem;
+		table {
+			margin-top: 2rem;
+			width: 90vw;
+			position: relative;
+			overflow-x: scroll;
+			margin-left: 4vw;
+			@media only screen and (max-width: 650px) {
+				width: 200px !important;
+				position: relative;
+				overflow-x: scroll;
+				margin: 0px !important;
+			}
+			tr:nth-child(odd) {
+				background: #d9e2f3;
+			}
+		}
+	}
+	.text-left {
+		margin-top: 5rem;
+	}
+}

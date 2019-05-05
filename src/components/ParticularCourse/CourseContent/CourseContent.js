@@ -292,7 +292,9 @@ export default class CourseContent extends Component {
 									</div>
 								) : null}
 
-								<h1 className="course_name" dangerouslySetInnerHTML={{ __html: course_name }} />
+								<h1 className="course_name">
+									CAT 2019<span> COACHING</span>
+								</h1>
 								<div className="slider_playlist col-md-9 px-0">
 									{this.state.transition === 0 ? (
 										<div className="price">
@@ -355,7 +357,7 @@ export default class CourseContent extends Component {
 										{this.state.transition === 0 ? (
 											<div className="price">
 												<span className="intro_offer_price">
-													<b>{`Now For ₹ ${discounted} * `}</b>
+													<b>{`Now For ₹ ${discounted}* `}</b>
 												</span>
 												<span className="intro_max_price">
 													<del>{`For ₹${price}`}</del>

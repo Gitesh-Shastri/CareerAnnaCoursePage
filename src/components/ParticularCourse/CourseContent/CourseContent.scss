@@ -3,6 +3,7 @@
 	background-size: cover;
 	background-position: top left;
 	background-repeat: no-repeat;
+	background: rgb(39, 53, 68);
 	.container {
 		padding-top: 4%;
 		margin-right: 7rem;
@@ -23,7 +24,7 @@
 		}
 		.row {
 			.content {
-				width: 55rem;
+				width: 45rem;
 				color: white;
 				@media screen and (max-width: '650px') {
 					width: 35rem;
@@ -214,10 +215,10 @@
 							border-top-right-radius: .3rem;
 							border-bottom-right-radius: .4rem;
 							color: white;
-							font-size: 1.95rem;
+							font-size: 1.94rem;
 							text-align: center;
 							font-weight: 600;
-							padding: 1.05rem 2.15rem;
+							padding: 1.1rem 2.15rem;
 							box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
 						}
 					}

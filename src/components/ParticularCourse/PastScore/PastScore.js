@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import './PastScore.css';
+import { TextDecoder } from 'util';
 
 class PastScore extends Component {
 	state = {
@@ -93,6 +94,21 @@ class PastScore extends Component {
 		this.setState({ submit: false, request: request });
 	};
 
+	renderSwitch(course_name) {
+		switch (course_name) {
+			case 'Online CAT Coaching':
+				return 'https://www.careeranna.com/online-cat-coaching/';
+			case 'CAT LRDI Course':
+				return 'https://careeranna.com/Online-CAT-LR-DI-Course/';
+			case 'CAT Verbal Ability Coaching':
+				return 'https://careeranna.com/Online-CAT-Verbal-Course/';
+			case 'CAT Quant Course':
+				return 'https://careeranna.com/Online-CAT-Quant-Course/';
+			default:
+				return '#';
+		}
+	}
+
 	submitRequest = (event) => {
 		event.preventDefault();
 		const request = this.state.request;
@@ -148,7 +164,9 @@ class PastScore extends Component {
 					<tbody>
 						{scores.map((score, i) => (
 							<tr key={i}>
-								<td style={{ textAlign: 'left' }}>{score.CourseEnrolled}</td>
+								<td style={{ textAlign: 'left' }}>
+									<a href={this.renderSwitch(score.CourseEnrolled)}>{score.CourseEnrolled}</a>
+								</td>
 								<td>{score.VARCPercentile}</td>
 								<td>{score.DILRPercentile}</td>
 								<td>{score.QuantPercentile}</td>
